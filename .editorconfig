@@ -1,0 +1,26 @@
+# EditorConfig helps maintain consistent coding styles across editors
+# https://editorconfig.org
+
+# Top-most EditorConfig file (stop searching in parent directories)
+root = true
+
+# Apply to all files
+[*]
+
+# Use spaces instead of tabs
+indent_style = space
+
+# Number of spaces per indentation level
+indent_size = 2
+
+# Unix-style line endings
+end_of_line = lf
+
+# UTF-8 character encoding
+charset = utf-8
+
+# Remove trailing whitespace on save
+trim_trailing_whitespace = true
+
+# Ensure file ends with a newline
+insert_final_newline = true
