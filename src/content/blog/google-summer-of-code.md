@@ -2,7 +2,6 @@
 title: 'The road from Google Summer of Code student to organization administrator'
 description: 'My journey through Google Summer of Code from 2013 to 2016, from being a student to becoming an organization administrator.'
 pubDate: 2016-09-28
-heroImage: '../../assets/google-summer-of-code-2016.png'
 ---
 
 Google Summer of Code is a great opportunity for students not only to find a remote internship, but also to become long-term open source contributors. It is available almost to any students who have experience or knowledge of writing code, regardless of your speciality or physical location. Google has created unprecedented opportunity both for young developers and open source communities, which I think everyone should take advantage of. GSoC is more than just a three months internship, and I hope that this post will be a good example of how it can change anyone's life.

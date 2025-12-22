@@ -2,7 +2,6 @@
 title: 'Running LLaMA 2 models on your Mac'
 description: 'A step-by-step guide to building, converting, and running LLaMA 2 models locally using llama.cpp on macOS.'
 pubDate: 2023-07-23
-heroImage: '../../assets/llama-chat.png'
 ---
 
 ![Running LLaMA 2 model in llama.cpp chat](../../assets/llama-chat.png)
