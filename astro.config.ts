@@ -11,6 +11,7 @@ import { expressiveCodeConfig } from "./ec.config";
 
 export default defineConfig({
   site: "https://abishov.com",
+  prefetch: true,
   integrations: [
     expressiveCode(expressiveCodeConfig),
     react(),
