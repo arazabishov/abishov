@@ -1,12 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Link from "@/components/Link.astro";
-import SEO from "@/components/SEO.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 ---
 
-<Layout class="max-w-3xl">
-  <SEO slot="head" title="About" description="About Araz Abishov" />
+<Layout title="About" description="About Araz Abishov" class="max-w-3xl">
   <Breadcrumbs items={[{ label: "About", icon: "lucide:user" }]} />
   <article class="prose">
     <div class="space-y-4 text-muted-foreground">

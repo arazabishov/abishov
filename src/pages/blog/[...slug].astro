@@ -2,9 +2,8 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import SEO from "@/components/SEO.astro";
 import Button from "@/components/ui/Button.astro";
-import { getPostReadingTime } from "@/core/data-utils";
+import { getPostReadingTime } from "@/core/data";
 import { formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 
@@ -28,8 +27,7 @@ const badgeClasses =
   "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 transition-[color,box-shadow] overflow-hidden border-transparent bg-muted text-foreground hover:bg-muted/90";
 ---
 
-<Layout>
-  <SEO slot="head" post={post} />
+<Layout post={post}>
 
   <section
     class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"

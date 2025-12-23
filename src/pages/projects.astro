@@ -1,19 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import SEO from "@/components/SEO.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
-import { getAllProjects } from "@/core/data-utils";
+import { getAllProjects } from "@/core/data";
 
 const projects = await getAllProjects();
 ---
 
-<Layout class="max-w-3xl">
-  <SEO
-    slot="head"
-    title="Projects"
-    description="Open source projects and side projects"
-  />
+<Layout title="Projects" description="Open source projects and side projects" class="max-w-3xl">
   <Breadcrumbs items={[{ label: "Projects", icon: "lucide:folder-open" }]} />
   <section class="space-y-6">
     <p class="text-muted-foreground">

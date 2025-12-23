@@ -1,14 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import SEO from "@/components/SEO.astro";
 import Link from "@/components/Link.astro";
 
 const buttonClasses =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none h-9 px-4 py-2 border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50";
 ---
 
-<Layout class="max-w-3xl">
-  <SEO slot="head" title="Page Not Found" noindex />
+<Layout title="Page Not Found" noindex class="max-w-3xl">
   <section class="flex flex-col items-center justify-center gap-6 py-20">
     <h1 class="text-6xl font-bold">404</h1>
     <p class="text-muted-foreground text-xl">Page not found</p>

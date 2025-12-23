@@ -1,9 +1,8 @@
 ---
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Link from "@/components/Link.astro";
-import SEO from "@/components/SEO.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getSortedTags } from "@/core/data-utils";
+import { getSortedTags } from "@/core/data";
 import { Icon } from "astro-icon/components";
 
 const sortedTags = await getSortedTags();
@@ -12,8 +11,7 @@ const badgeClasses =
   "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 transition-[color,box-shadow] overflow-hidden border-transparent bg-muted text-foreground hover:bg-muted/90";
 ---
 
-<Layout class="max-w-3xl">
-  <SEO slot="head" title="Tags" />
+<Layout title="Tags" class="max-w-3xl">
   <Breadcrumbs items={[{ label: "Tags", icon: "lucide:tags" }]} />
 
   <div class="flex flex-col gap-4">

@@ -3,9 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import Link from "@/components/Link.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
-import SEO from "@/components/SEO.astro";
 import { SITE } from "@/core/constants";
-import { getRecentPosts, getRecentProjects } from "@/core/data-utils";
+import { getRecentPosts, getRecentProjects } from "@/core/data";
 
 const posts = await getRecentPosts(SITE.featuredPostCount);
 const projects = await getRecentProjects(SITE.featuredPostCount);
@@ -14,8 +13,7 @@ const ghostButtonClasses =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none h-9 px-4 py-2 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 group";
 ---
 
-<Layout class="max-w-3xl">
-  <SEO slot="head" title="Home" />
+<Layout title="Home" class="max-w-3xl">
   <!-- Intro Section -->
   <section class="rounded-lg border p-6 space-y-4">
     <h1 class="text-3xl font-medium">Hey, I'm Araz 👋</h1>

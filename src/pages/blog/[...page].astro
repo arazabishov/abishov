@@ -1,11 +1,10 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import SEO from "@/components/SEO.astro";
 import Pagination from "@/components/ui/Pagination.astro";
 import { SITE } from "@/core/constants";
 import Layout from "@/layouts/Layout.astro";
-import { getAllPosts, groupPostsByYear } from "@/core/data-utils";
+import { getAllPosts, groupPostsByYear } from "@/core/data";
 import type { PaginateFunction } from "astro";
 
 export async function getStaticPaths({
@@ -25,8 +24,7 @@ const years = Object.keys(postsByYear).sort(
 );
 ---
 
-<Layout class="max-w-3xl">
-  <SEO slot="head" title="Blog" />
+<Layout title="Blog" class="max-w-3xl">
   <Breadcrumbs
     items={[
       { href: "/blog", label: "Blog", icon: "lucide:library-big" },
