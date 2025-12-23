@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
@@ -14,7 +13,6 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     expressiveCode(expressiveCodeConfig),
-    react(),
     sitemap(),
     icon(),
   ],

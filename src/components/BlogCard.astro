@@ -1,7 +1,7 @@
 ---
 import Link from "./Link.astro";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import Badge from "@/components/ui/Badge.astro";
+import Separator from "@/components/ui/Separator.astro";
 import { getPostReadingTime } from "@/core/data-utils";
 import { formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
@@ -46,7 +46,7 @@ const readTime = await getPostReadingTime(entry.id);
         class="text-muted-foreground mb-2 flex flex-wrap items-center gap-x-2 text-xs"
       >
         <span>{formattedDate}</span>
-        <Separator orientation="vertical" className="h-4!" />
+        <Separator orientation="vertical" class="h-4!" />
         <span>{readTime}</span>
       </div>
 
@@ -54,7 +54,7 @@ const readTime = await getPostReadingTime(entry.id);
         entry.data.tags && entry.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-2">
             {entry.data.tags.map((tag) => (
-              <Badge variant="muted" className="flex items-center gap-x-1">
+              <Badge variant="muted" class="flex items-center gap-x-1">
                 <Icon name="lucide:hash" class="size-3" />
                 {tag}
               </Badge>

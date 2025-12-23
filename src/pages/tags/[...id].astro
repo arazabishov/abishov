@@ -1,7 +1,7 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import PageHead from "@/components/PageHead.astro";
+import SEO from "@/components/SEO.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getAllTags, getPostsByTag } from "@/core/data-utils";
 
@@ -27,7 +27,7 @@ const { tag, posts } = Astro.props;
 ---
 
 <Layout class="max-w-3xl">
-  <PageHead
+  <SEO
     slot="head"
     title={`Posts tagged with "${tag}"`}
     description={`A collection of posts tagged with ${tag}.`}

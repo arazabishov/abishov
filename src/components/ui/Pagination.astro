@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+function getPageUrl(page: number): string {
+  if (page === 1) return baseUrl;
+  return `${baseUrl}${page}`;
+}
+
+const linkBase =
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none";
+const linkSize = "size-9";
+const linkSizeDefault = "h-9 px-4 py-2";
+
+const ghostVariant = "hover:bg-muted hover:text-foreground";
+const outlineVariant =
+  "border bg-background hover:bg-muted hover:text-foreground";
+---
+
+<nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center">
+  <ul class="flex flex-row flex-wrap items-center gap-1">
+    <li>
+      <a
+        href={currentPage > 1 ? getPageUrl(currentPage - 1) : undefined}
+        aria-label="Go to previous page"
+        class:list={[
+          linkBase,
+          linkSizeDefault,
+          ghostVariant,
+          "gap-1 px-2.5 sm:pl-2.5",
+          currentPage === 1 && "pointer-events-none opacity-50",
+        ]}
+      >
+        <Icon name="lucide:chevron-left" class="size-4" />
+        <span class="hidden sm:block">Previous</span>
+      </a>
+    </li>
+
+    {pages.map((page) => (
+      <li>
+        <a
+          href={getPageUrl(page)}
+          aria-current={page === currentPage ? "page" : undefined}
+          class:list={[
+            linkBase,
+            linkSize,
+            page === currentPage ? outlineVariant : ghostVariant,
+          ]}
+        >
+          {page}
+        </a>
+      </li>
+    ))}
+
+    <li>
+      <a
+        href={currentPage < totalPages ? getPageUrl(currentPage + 1) : undefined}
+        aria-label="Go to next page"
+        class:list={[
+          linkBase,
+          linkSizeDefault,
+          ghostVariant,
+          "gap-1 px-2.5 sm:pr-2.5",
+          currentPage === totalPages && "pointer-events-none opacity-50",
+        ]}
+      >
+        <span class="hidden sm:block">Next</span>
+        <Icon name="lucide:chevron-right" class="size-4" />
+      </a>
+    </li>
+  </ul>
+</nav>

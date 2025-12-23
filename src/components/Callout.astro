@@ -1,7 +1,5 @@
 ---
-import { cn } from "@/core/utils";
 import { Icon } from "astro-icon/components";
-import { cva, type VariantProps } from "class-variance-authority";
 
 const calloutConfig = {
   note: {
@@ -33,21 +31,7 @@ const calloutConfig = {
 
 type CalloutType = keyof typeof calloutConfig;
 
-const calloutVariants = cva(
-  "my-6 flex gap-3 rounded-lg border-l-4 p-4 [&_p]:my-0 [&_p]:text-sm",
-  {
-    variants: {
-      type: Object.fromEntries(
-        Object.entries(calloutConfig).map(([key, value]) => [key, value.style]),
-      ) as Record<CalloutType, string>,
-    },
-    defaultVariants: {
-      type: "note",
-    },
-  },
-);
-
-interface Props extends VariantProps<typeof calloutVariants> {
+interface Props {
   type?: CalloutType;
   title?: string;
   class?: string;
@@ -56,14 +40,16 @@ interface Props extends VariantProps<typeof calloutVariants> {
 const { type = "note", title, class: className } = Astro.props;
 const config = calloutConfig[type];
 const displayTitle = title || type.charAt(0).toUpperCase() + type.slice(1);
+
+const baseClasses = "my-6 flex gap-3 rounded-lg border-l-4 p-4 [&_p]:my-0 [&_p]:text-sm";
 ---
 
-<aside class={cn(calloutVariants({ type }), className)} role="note">
+<aside class:list={[baseClasses, config.style, className]} role="note">
   <div class="flex-shrink-0">
-    <Icon name={config.icon} class={cn("size-5", config.textColor)} />
+    <Icon name={config.icon} class:list={["size-5", config.textColor]} />
   </div>
   <div class="flex-1">
-    <p class={cn("mb-1 font-medium", config.textColor)}>{displayTitle}</p>
+    <p class:list={["mb-1 font-medium", config.textColor]}>{displayTitle}</p>
     <div class="text-foreground/80">
       <slot />
     </div>

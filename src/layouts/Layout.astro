@@ -6,7 +6,6 @@ import Head from "@/components/Head.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE } from "@/core/constants";
-import { cn } from "@/core/utils";
 
 interface Props {
   title?: string;
@@ -39,7 +38,7 @@ const {
       <slot name="table-of-contents" />
     </header>
     <main
-      class={cn("w-full mx-auto flex grow flex-col gap-y-6 px-4", className)}
+      class:list={["w-full mx-auto flex grow flex-col gap-y-6 px-4", className]}
     >
       <slot />
     </main>

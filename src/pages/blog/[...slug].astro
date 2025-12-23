@@ -2,11 +2,10 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import PostHead from "@/components/PostHead.astro";
+import SEO from "@/components/SEO.astro";
 import TOCHeader from "@/components/TOCHeader.astro";
 import TOCSidebar from "@/components/TOCSidebar.astro";
-import { badgeVariants } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/Button.astro";
 import { getPostReadingTime } from "@/core/data-utils";
 import { formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
@@ -27,10 +26,13 @@ const { Content, headings } = await render(post);
 const { title, description, date, updatedDate, image, tags } = post.data;
 
 const readingTime = await getPostReadingTime(currentPostId);
+
+const badgeClasses =
+  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 transition-[color,box-shadow] overflow-hidden border-transparent bg-muted text-foreground hover:bg-muted/90";
 ---
 
 <Layout>
-  <PostHead slot="head" post={post} />
+  <SEO slot="head" post={post} />
   {
     headings?.length > 0 && (
       <TOCHeader slot="table-of-contents" headings={headings} />
@@ -93,7 +95,7 @@ const readingTime = await getPostReadingTime(currentPostId);
               tags.map((tag) => (
                 <a
                   href={`/tags/${tag}`}
-                  class={badgeVariants({ variant: "muted" })}
+                  class={badgeClasses}
                 >
                   <Icon name="lucide:hash" class="size-3" />
                   {tag}
@@ -114,7 +116,7 @@ const readingTime = await getPostReadingTime(currentPostId);
   <Button
     variant="outline"
     size="icon"
-    className="group fixed right-8 bottom-8 z-50 hidden"
+    class="group fixed right-8 bottom-8 z-50 hidden"
     id="scroll-to-top"
     title="Scroll to top"
     aria-label="Scroll to top"

@@ -1,21 +1,25 @@
 ---
 import { SITE } from "@/core/constants";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   title?: string;
   description?: string;
+  post?: CollectionEntry<"blog">;
   noindex?: boolean;
 }
 
-const {
-  title = SITE.title,
-  description = SITE.description,
-  noindex = false,
-} = Astro.props;
-const image = new URL("/static/og.png", Astro.site);
+const { title: propTitle, description: propDescription, post, noindex = false } = Astro.props;
+
+const isPost = !!post;
+const title = post?.data.title || propTitle || SITE.title;
+const description = post?.data.description || propDescription || SITE.description;
+const defaultImage = new URL("/static/og.png", Astro.site);
+const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : defaultImage;
 ---
 
 <title>{`${title} | ${SITE.title}`}</title>
+<meta name="title" content={`${title} | ${SITE.title}`} />
 <meta name="description" content={description} />
 <link rel="canonical" href={SITE.href} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -24,13 +28,19 @@ const image = new URL("/static/og.png", Astro.site);
 <meta property="og:description" content={description} />
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={title} />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={isPost ? "article" : "website"} />
 <meta property="og:locale" content={SITE.locale} />
 <meta property="og:site_name" content={SITE.title} />
 <meta property="og:url" content={Astro.url} />
+{isPost && <meta property="og:author" content={SITE.author} />}
 
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
 <meta name="twitter:image:alt" content={title} />
 <meta name="twitter:card" content="summary_large_image" />
+{isPost && <meta name="twitter:creator" content={SITE.author} />}
+
+{post?.data.tags?.map((tag: string) => (
+  <meta property="article:tag" content={tag} />
+))}
