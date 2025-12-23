@@ -2,6 +2,8 @@
 import "../styles/global.css";
 
 import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import { Site } from "../core/constants";
 import { cn } from "../core/utils";
 
@@ -24,10 +26,12 @@ const { title, description, image, class: className } = Astro.props;
     <slot name="head" />
   </Head>
   <body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans">
+    <Header />
     <main
       class={cn("w-full mx-auto flex grow flex-col gap-y-6 px-4", className)}
     >
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
