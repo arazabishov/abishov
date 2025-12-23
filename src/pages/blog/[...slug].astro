@@ -3,12 +3,11 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import PostHead from "@/components/PostHead.astro";
-import PostNavigation from "@/components/PostNavigation.astro";
 import TOCHeader from "@/components/TOCHeader.astro";
 import TOCSidebar from "@/components/TOCSidebar.astro";
 import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getAdjacentPosts, getPostReadingTime } from "@/core/data-utils";
+import { getPostReadingTime } from "@/core/data-utils";
 import { formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
@@ -27,7 +26,6 @@ const currentPostId = post.id;
 const { Content, headings } = await render(post);
 const { title, description, date, updatedDate, image, tags } = post.data;
 
-const navigation = await getAdjacentPosts(currentPostId);
 const readingTime = await getPostReadingTime(currentPostId);
 ---
 
@@ -54,18 +52,6 @@ const readingTime = await getPostReadingTime(currentPostId);
         ]}
       />
     </div>
-
-    {
-      image && (
-        <Image
-          src={image}
-          alt={title}
-          width={1200}
-          height={630}
-          class="col-span-full mx-auto w-full max-w-5xl object-cover"
-        />
-      )
-    }
 
     <section class="col-start-2 flex flex-col gap-y-6 text-center">
       <div class="flex flex-col">
@@ -116,11 +102,6 @@ const readingTime = await getPostReadingTime(currentPostId);
           }
         </div>
       </div>
-
-      <PostNavigation
-        newerPost={navigation.newer}
-        olderPost={navigation.older}
-      />
     </section>
 
     {headings?.length > 0 && <TOCSidebar headings={headings} />}
@@ -128,8 +109,6 @@ const readingTime = await getPostReadingTime(currentPostId);
     <article class="prose col-start-2 max-w-none">
       <Content />
     </article>
-
-    <PostNavigation newerPost={navigation.newer} olderPost={navigation.older} />
   </section>
 
   <Button

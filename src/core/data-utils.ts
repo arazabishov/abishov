@@ -23,24 +23,6 @@ export async function getAllTags(): Promise<Map<string, number>> {
   }, new Map<string, number>());
 }
 
-export async function getAdjacentPosts(currentId: string): Promise<{
-  newer: CollectionEntry<"blog"> | null;
-  older: CollectionEntry<"blog"> | null;
-}> {
-  const allPosts = await getAllPosts();
-  const currentIndex = allPosts.findIndex((post) => post.id === currentId);
-
-  if (currentIndex === -1) {
-    return { newer: null, older: null };
-  }
-
-  return {
-    newer: currentIndex > 0 ? allPosts[currentIndex - 1] : null,
-    older:
-      currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null,
-  };
-}
-
 export async function getPostsByTag(
   tag: string,
 ): Promise<CollectionEntry<"blog">[]> {
@@ -72,9 +54,7 @@ export async function getPostReadingTime(postId: string): Promise<string> {
   const post = posts.find((p) => p.id === postId);
   if (!post) return "1 min read";
 
-  const { Content } = await render(post);
-  const html = Content?.toString() || "";
-  const wordCount = calculateWordCountFromHtml(html);
+  const wordCount = calculateWordCountFromHtml(post.body);
   return readingTime(wordCount);
 }
 
