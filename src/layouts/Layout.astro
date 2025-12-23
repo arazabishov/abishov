@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+
+import Head from "../components/Head.astro";
+import { Site } from "../core/constants";
+import { cn } from "../core/utils";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  class?: string;
+}
+
+const { title, description, image, class: className } = Astro.props;
+---
+
+<!doctype html>
+<html
+  class="bg-background text-foreground scheme-light-dark"
+  lang={Site.locale}
+>
+  <Head title={title} description={description} image={image}>
+    <slot name="head" />
+  </Head>
+  <body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans">
+    <main
+      class={cn("w-full mx-auto flex grow flex-col gap-y-6 px-4", className)}
+    >
+      <slot />
+    </main>
+  </body>
+</html>

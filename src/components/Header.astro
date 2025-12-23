@@ -1,11 +1,11 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { Site } from "../core/constants";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
   <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <h2><a href="/">{Site.title}</a></h2>
     <div class="internal-links">
       <HeaderLink href="/">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>

@@ -1,6 +1,0 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = "Araz Abishov";
-export const SITE_DESCRIPTION =
-  "Bits and bytes about open source, Android and Rust.";
