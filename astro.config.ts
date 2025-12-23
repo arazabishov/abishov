@@ -7,7 +7,7 @@ import expressiveCode from "astro-expressive-code";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkEmoji from "remark-emoji";
 import tailwindcss from "@tailwindcss/vite";
-import { expressiveCodeConfig } from "./ec.config";
+import { expressiveCodeConfig } from "./exp.config";
 
 export default defineConfig({
   site: "https://abishov.com",
