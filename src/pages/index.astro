@@ -1,9 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
 import { Site } from "../core/constants";
 
 const posts = (await getCollection("blog")).sort(
@@ -11,53 +10,23 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={Site.title} description={Site.description} />
-    <style>
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+<Layout title={Site.title} description={Site.description} class="max-w-3xl">
+  <section class="space-y-6">
+    <ul class="space-y-4">
+      {
+        posts.map((post) => (
+          <li class="group">
+            <Link href={`/${post.id}/`} class="block space-y-1">
+              <h4 class="text-xl font-medium group-hover:text-primary transition-colors">
+                {post.data.title}
+              </h4>
+              <p class="text-muted-foreground text-sm">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </Link>
+          </li>
+        ))
       }
-      li {
-        margin-bottom: 1.5rem;
-      }
-      a {
-        text-decoration: none;
-      }
-      a:hover .title {
-        color: rgb(var(--accent));
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <ul>
-        {
-          posts.map((post) => (
-            <li>
-              <a href={`/${post.id}/`}>
-                <h4 class="title">{post.data.title}</h4>
-                <p class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </ul>
+  </section>
+</Layout>

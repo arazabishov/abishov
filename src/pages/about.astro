@@ -1,22 +1,28 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
 ---
 
-<Layout
-  title="About"
-  description="About Araz Abishov"
-  pubDate={new Date("December 22 2025")}
->
-  <p>Hi there!</p>
+<Layout title="About" description="About Araz Abishov" class="max-w-3xl">
+  <article class="prose prose-lg">
+    <h1 class="text-4xl font-bold mb-6">About</h1>
 
-  <p>
-    I'm Araz Abishov, a software engineer living in Norway and working at
-    Microsoft. I enjoy learning and playing around with the new technology, and
-    I occasionally write about it in this blog.
-  </p>
+    <div class="space-y-4 text-muted-foreground">
+      <p>Hi there!</p>
 
-  <p>
-    If you have any questions or just want to say hi, you can reach out to me at
-    <a href="https://twitter.com/arazabishov">twitter</a>.
-  </p>
+      <p>
+        I'm Araz Abishov, a software engineer living in Norway and working at
+        Microsoft. I enjoy learning and playing around with the new technology,
+        and I occasionally write about it in this blog.
+      </p>
+
+      <p>
+        If you have any questions or just want to say hi, you can reach out to
+        me at
+        <Link href="https://twitter.com/arazabishov" external underline
+          >Twitter</Link
+        >.
+      </p>
+    </div>
+  </article>
 </Layout>

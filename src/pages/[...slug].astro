@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import BlogPost from "../layouts/BlogPost.astro";
+import Layout from "../layouts/Layout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -13,8 +14,28 @@ type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await render(post);
+const { title, description, pubDate, updatedDate } = post.data;
 ---
 
-<BlogPost {...post.data}>
-  <Content />
-</BlogPost>
+<Layout title={title} description={description} class="max-w-3xl">
+  <article>
+    <header class="mb-8 text-center">
+      <div class="mb-2 text-sm text-muted-foreground">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <span class="italic">
+              {" "}
+              &bull; Last updated on <FormattedDate date={updatedDate} />
+            </span>
+          )
+        }
+      </div>
+      <h1 class="text-4xl font-bold mb-4">{title}</h1>
+      <hr class="border-border" />
+    </header>
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>
