@@ -37,6 +37,13 @@ export async function getRecentPosts(
   return posts.slice(0, count);
 }
 
+export async function getRecentProjects(
+  count: number,
+): Promise<CollectionEntry<"projects">[]> {
+  const projects = await getAllProjects();
+  return projects.slice(0, count);
+}
+
 export async function getSortedTags(): Promise<
   { tag: string; count: number }[]
 > {
