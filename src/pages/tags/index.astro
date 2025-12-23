@@ -2,7 +2,7 @@
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Link from "@/components/Link.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getSortedTags } from "@/core/data";
+import { getSortedTags } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 
 const sortedTags = await getSortedTags();

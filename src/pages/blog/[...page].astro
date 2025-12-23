@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Pagination from "@/components/ui/Pagination.astro";
 import { SITE } from "@/core/constants";
 import Layout from "@/layouts/Layout.astro";
-import { getAllPosts, groupPostsByYear } from "@/core/data";
+import { getAllPosts, groupPostsByYear } from "@/core/utils";
 import type { PaginateFunction } from "astro";
 
 export async function getStaticPaths({

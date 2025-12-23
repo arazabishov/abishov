@@ -4,7 +4,7 @@ import Link from "@/components/Link.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import { SITE } from "@/core/constants";
-import { getRecentPosts, getRecentProjects } from "@/core/data";
+import { getRecentPosts, getRecentProjects } from "@/core/utils";
 
 const posts = await getRecentPosts(SITE.featuredPostCount);
 const projects = await getRecentProjects(SITE.featuredPostCount);

@@ -1,9 +1,7 @@
 ---
 import Link from "./Link.astro";
 import Badge from "@/components/ui/Badge.astro";
-import Separator from "@/components/ui/Separator.astro";
-import { getPostReadingTime } from "@/core/data";
-import { formatDate } from "@/core/utils";
+import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -46,7 +44,12 @@ const readTime = getPostReadingTime(entry);
         class="text-muted-foreground mb-2 flex flex-wrap items-center gap-x-2 text-xs"
       >
         <span>{formattedDate}</span>
-        <Separator orientation="vertical" class="h-4!" />
+        <div
+          role="separator"
+          aria-orientation="vertical"
+          class="bg-border shrink-0 h-full w-px h-4!"
+        >
+        </div>
         <span>{readTime}</span>
       </div>
 

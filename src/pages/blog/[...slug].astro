@@ -3,8 +3,7 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Button from "@/components/ui/Button.astro";
-import { getPostReadingTime } from "@/core/data";
-import { formatDate } from "@/core/utils";
+import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {

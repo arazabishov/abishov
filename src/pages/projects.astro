@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
-import { getAllProjects } from "@/core/data";
+import { getAllProjects } from "@/core/utils";
 
 const projects = await getAllProjects();
 ---

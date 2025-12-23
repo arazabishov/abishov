@@ -1,5 +1,4 @@
 ---
-import Separator from "@/components/ui/Separator.astro";
 import { SOCIAL_LINKS } from "@/core/constants";
 import Link from "./Link.astro";
 import SocialIcons from "./SocialIcons.astro";
@@ -12,7 +11,12 @@ import SocialIcons from "./SocialIcons.astro";
     <span class="text-muted-foreground text-sm">
       &copy; {new Date().getFullYear()} All rights reserved.
     </span>
-    <Separator orientation="vertical" class="hidden h-4! sm:block" />
+    <div
+      role="separator"
+      aria-orientation="vertical"
+      class="bg-border shrink-0 h-full w-px hidden h-4! sm:block"
+    >
+    </div>
     <p class="text-muted-foreground text-sm">
       Made by <Link
         href="https://github.com/arazabishov"

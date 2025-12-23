@@ -21,7 +21,6 @@
     "astro-expressive-code": "^0.41.5",
     "astro-icon": "^1.1.5",
     "rehype-external-links": "^3.0.0",
-    "remark-emoji": "^5.0.2",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.18"
   },
