@@ -121,7 +121,9 @@
       @apply text-left [&[align=center]]:text-center [&[align=right]]:text-right;
     }
 
-    :where(img, video, figure):not(:where(.not-prose, .not-prose *)) {
+    :where(img, video, figure, .expressive-code):not(
+      :where(.not-prose, .not-prose *)
+    ) {
       @apply mx-auto my-6;
     }
 
@@ -140,5 +142,5 @@
 }
 
 @utility small {
-  @apply text-sm leading-6 [&_code]:text-xs [&_img,video,figure,details,blockquote]:my-4! [&_li,ol]:mt-0 [&_p]:my-2! [&_ul]:my-0;
+  @apply text-sm leading-6 [&_code]:text-xs [&_img,video,figure,details,blockquote,.katex-display,.expressive-code]:my-4! [&_li,ol]:mt-0 [&_p]:my-2! [&_ul]:my-0;
 }
