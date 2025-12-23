@@ -1,6 +1,11 @@
 ---
 import Link from "./Link.astro";
-import FormattedDate from "./FormattedDate.astro";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { getPostReadingTime } from "@/core/data-utils";
+import { formatDate } from "@/core/utils";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -8,22 +13,55 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+const formattedDate = formatDate(entry.data.date);
+const readTime = await getPostReadingTime(entry.id);
 ---
 
 <div
-  class="hover:bg-muted/50 rounded-lg border p-4 transition-colors duration-200"
+  class="hover:bg-muted/50 rounded-xl border p-4 transition-colors duration-300 ease-in-out"
 >
-  <Link href={`/blog/${entry.id}`} class="block space-y-2">
-    <h3 class="text-lg font-medium">{entry.data.title}</h3>
+  <Link
+    href={`/${entry.collection}/${entry.id}`}
+    class="flex flex-col gap-4 sm:flex-row"
+  >
     {
-      entry.data.description && (
-        <p class="text-muted-foreground text-sm line-clamp-2">
-          {entry.data.description}
-        </p>
+      entry.data.image && (
+        <div class="w-full sm:max-w-3xs sm:shrink-0">
+          <Image
+            src={entry.data.image}
+            alt={entry.data.title}
+            width={1200}
+            height={630}
+            class="object-cover"
+          />
+        </div>
       )
     }
-    <p class="text-muted-foreground text-xs">
-      <FormattedDate date={entry.data.pubDate} />
-    </p>
+
+    <div class="grow">
+      <h3 class="mb-1 text-lg font-medium">{entry.data.title}</h3>
+      <p class="text-muted-foreground mb-2 text-sm">{entry.data.description}</p>
+
+      <div
+        class="text-muted-foreground mb-2 flex flex-wrap items-center gap-x-2 text-xs"
+      >
+        <span>{formattedDate}</span>
+        <Separator orientation="vertical" className="h-4!" />
+        <span>{readTime}</span>
+      </div>
+
+      {
+        entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {entry.data.tags.map((tag) => (
+              <Badge variant="muted" className="flex items-center gap-x-1">
+                <Icon name="lucide:hash" class="size-3" />
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )
+      }
+    </div>
   </Link>
 </div>

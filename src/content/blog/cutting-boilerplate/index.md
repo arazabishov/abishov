@@ -1,7 +1,8 @@
 ---
-title: 'Cutting boilerplate in UI tests'
-description: 'Reducing repetitive screenshot capturing logic in Android UI tests using custom JUnit rules.'
-pubDate: 2017-11-05
+title: "Cutting boilerplate in UI tests"
+description: "Reducing repetitive screenshot capturing logic in Android UI tests using custom JUnit rules."
+date: 2017-11-05
+tags: ["android", "testing"]
 ---
 
 If you have experience writing UI tests for android, you probably heard of tools like Spoon or Composer. Along with orchestration of test execution, they provide APIs for capturing screenshots which later are placed into generated HTML report. All of these is great, but there are certain associated shortcomings:

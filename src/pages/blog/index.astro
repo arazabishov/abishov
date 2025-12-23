@@ -1,49 +1,35 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
 import BlogCard from "@/components/BlogCard.astro";
-import { Site } from "@/core/constants";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import PageHead from "@/components/PageHead.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getAllPosts, groupPostsByYear } from "@/core/data-utils";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-
-// Group posts by year
-const postsByYear = posts.reduce(
-  (acc, post) => {
-    const year = post.data.pubDate.getFullYear().toString();
-    if (!acc[year]) acc[year] = [];
-    acc[year].push(post);
-    return acc;
-  },
-  {} as Record<string, typeof posts>,
-);
-
+const allPosts = await getAllPosts();
+const postsByYear = groupPostsByYear(allPosts);
 const years = Object.keys(postsByYear).sort(
   (a, b) => parseInt(b) - parseInt(a),
 );
 ---
 
-<Layout
-  title={`Blog – ${Site.title}`}
-  description={Site.description}
-  class="max-w-3xl"
->
-  <section class="space-y-8">
-    <h1 class="text-3xl font-bold">Blog</h1>
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Blog" />
+  <Breadcrumbs items={[{ label: "Blog", icon: "lucide:library-big" }]} />
+
+  <div class="flex min-h-[calc(100vh-18rem)] flex-col gap-y-8">
     {
       years.map((year) => (
-        <div class="space-y-4">
-          <h2 class="text-xl font-medium text-muted-foreground">{year}</h2>
-          <ul class="space-y-4">
+        <section class="flex flex-col gap-y-4">
+          <div class="font-medium">{year}</div>
+          <ul class="flex flex-col gap-4">
             {postsByYear[year].map((post) => (
               <li>
                 <BlogCard entry={post} />
               </li>
             ))}
           </ul>
-        </div>
+        </section>
       ))
     }
-  </section>
+  </div>
 </Layout>

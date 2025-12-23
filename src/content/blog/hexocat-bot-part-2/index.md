@@ -1,7 +1,8 @@
 ---
-title: 'Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 2'
-description: 'Integrating Rocket framework with the hexocat bot and exposing it to the internet using ngrok.'
-pubDate: 2017-08-08
+title: "Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 2"
+description: "Integrating Rocket framework with the hexocat bot and exposing it to the internet using ngrok."
+date: 2017-08-08
+tags: ["rust", "web"]
 ---
 
 In the [previous blog post](/hexocat-bot-part-1/) we have learned how to make calls to the GitHub APIs using Anterofit. In this part, we will focus on using the Rocket framework for serving requests, as well as using ngrok for exposing the hexocat bot to the internet.

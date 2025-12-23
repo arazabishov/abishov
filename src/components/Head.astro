@@ -1,5 +1,5 @@
 ---
-import { Site } from "../core/constants";
+import { SITE } from "../core/constants";
 import { ClientRouter } from "astro:transitions";
 ---
 
@@ -36,7 +36,7 @@ import { ClientRouter } from "astro:transitions";
   <link
     rel="alternate"
     type="application/rss+xml"
-    title={Site.title}
+    title={SITE.title}
     href={new URL("rss.xml", Astro.site)}
   />
 

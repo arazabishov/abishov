@@ -1,7 +1,9 @@
 ---
 title: "Exploring android development on iPad"
 description: "Setting up Android Studio and emulators on an iPad using JetBrains Projector and VNC for remote development."
-pubDate: 2021-06-06
+date: 2021-06-06
+tags: ["android", "productivity"]
+image: ./android-studio-on-ipad.jpg
 ---
 
 <!-- Including the vimeo player for embedded videos -->

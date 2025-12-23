@@ -1,7 +1,8 @@
 ---
-title: 'Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 1'
-description: 'Building a simple Slack bot for searching GitHub repositories using Rust, showcasing how powerful the language is for web development.'
-pubDate: 2017-07-27
+title: "Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 1"
+description: "Building a simple Slack bot for searching GitHub repositories using Rust, showcasing how powerful the language is for web development."
+date: 2017-07-27
+tags: ["rust", "web"]
 ---
 
 Rust is a systems programming language which enables developers to write safe and fast code without sacrificing high-level language constructs. At first, it seems that Rust is targeting only performance critical use cases, but the original intention is far more ambitious. Frameworks like Rocket, Serde and Anterofit make Rust a good fit for the web application development as well.
