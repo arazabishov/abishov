@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
 import rehypeExternalLinks from "rehype-external-links";
+import remarkEmoji from "remark-emoji";
 
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
@@ -57,6 +58,7 @@ export default defineConfig({
     icon(),
   ],
   markdown: {
+    remarkPlugins: [remarkEmoji],
     rehypePlugins: [
       [
         rehypeExternalLinks,

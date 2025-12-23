@@ -1,19 +1,25 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
 import { SITE } from "@/core/constants";
+import { getAllPosts } from "@/core/data-utils";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
-  const posts = await getCollection("blog");
-  return rss({
-    title: SITE.title,
-    description: SITE.description,
-    site: context.site!,
-    items: posts.map((post) => ({
-      title: post.data.title,
-      description: post.data.description,
-      pubDate: post.data.date,
-      link: `/blog/${post.id}/`,
-    })),
-  });
+  try {
+    const posts = await getAllPosts();
+
+    return rss({
+      title: SITE.title,
+      description: SITE.description,
+      site: context.site ?? SITE.href,
+      items: posts.map((post) => ({
+        title: post.data.title,
+        description: post.data.description,
+        pubDate: post.data.date,
+        link: `/blog/${post.id}/`,
+      })),
+    });
+  } catch (error) {
+    console.error("Error generating RSS feed:", error);
+    return new Response("Error generating RSS feed", { status: 500 });
+  }
 }

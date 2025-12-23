@@ -1,6 +1,7 @@
 ---
-import { SITE } from "../core/constants";
+import { SITE } from "@/core/constants";
 import { ClientRouter } from "astro:transitions";
+import Favicons from "./Favicons.astro";
 ---
 
 <head>
@@ -33,6 +34,7 @@ import { ClientRouter } from "astro:transitions";
   />
 
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
   <link
     rel="alternate"
     type="application/rss+xml"
@@ -40,6 +42,7 @@ import { ClientRouter } from "astro:transitions";
     href={new URL("rss.xml", Astro.site)}
   />
 
+  <Favicons />
   <ClientRouter />
 
   <slot />

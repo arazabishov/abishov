@@ -1,0 +1,71 @@
+---
+import { cn } from "@/core/utils";
+import { Icon } from "astro-icon/components";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const calloutConfig = {
+  note: {
+    style: "border-blue-500 dark:bg-blue-950/5",
+    textColor: "text-blue-700 dark:text-blue-300",
+    icon: "lucide:info",
+  },
+  tip: {
+    style: "border-green-500 dark:bg-green-950/5",
+    textColor: "text-green-700 dark:text-green-300",
+    icon: "lucide:lightbulb",
+  },
+  warning: {
+    style: "border-amber-500 dark:bg-amber-950/5",
+    textColor: "text-amber-700 dark:text-amber-300",
+    icon: "lucide:alert-triangle",
+  },
+  danger: {
+    style: "border-red-500 dark:bg-red-950/5",
+    textColor: "text-red-700 dark:text-red-300",
+    icon: "lucide:shield-alert",
+  },
+  important: {
+    style: "border-purple-500 dark:bg-purple-950/5",
+    textColor: "text-purple-700 dark:text-purple-300",
+    icon: "lucide:message-square-warning",
+  },
+} as const;
+
+type CalloutType = keyof typeof calloutConfig;
+
+const calloutVariants = cva(
+  "my-6 flex gap-3 rounded-lg border-l-4 p-4 [&_p]:my-0 [&_p]:text-sm",
+  {
+    variants: {
+      type: Object.fromEntries(
+        Object.entries(calloutConfig).map(([key, value]) => [key, value.style]),
+      ) as Record<CalloutType, string>,
+    },
+    defaultVariants: {
+      type: "note",
+    },
+  },
+);
+
+interface Props extends VariantProps<typeof calloutVariants> {
+  type?: CalloutType;
+  title?: string;
+  class?: string;
+}
+
+const { type = "note", title, class: className } = Astro.props;
+const config = calloutConfig[type];
+const displayTitle = title || type.charAt(0).toUpperCase() + type.slice(1);
+---
+
+<aside class={cn(calloutVariants({ type }), className)} role="note">
+  <div class="flex-shrink-0">
+    <Icon name={config.icon} class={cn("size-5", config.textColor)} />
+  </div>
+  <div class="flex-1">
+    <p class={cn("mb-1 font-medium", config.textColor)}>{displayTitle}</p>
+    <div class="text-foreground/80">
+      <slot />
+    </div>
+  </div>
+</aside>
