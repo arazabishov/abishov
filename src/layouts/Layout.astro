@@ -31,11 +31,8 @@ const {
     <slot name="head" />
   </Head>
   <body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans">
-    <header
-      class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none"
-    >
+    <header class="bg-background/50 sticky top-0 z-50 backdrop-blur-sm">
       <Header />
-      <slot name="table-of-contents" />
     </header>
     <main
       class:list={["w-full mx-auto flex grow flex-col gap-y-6 px-4", className]}

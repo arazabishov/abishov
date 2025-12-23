@@ -1,4 +1,4 @@
-import { getCollection, render, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { readingTime, calculateWordCountFromHtml } from "@/core/utils";
 
 export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
@@ -56,11 +56,7 @@ export async function getSortedTags(): Promise<
     });
 }
 
-export async function getPostReadingTime(postId: string): Promise<string> {
-  const posts = await getCollection("blog");
-  const post = posts.find((p) => p.id === postId);
-  if (!post) return "1 min read";
-
+export function getPostReadingTime(post: CollectionEntry<"blog">): string {
   const wordCount = calculateWordCountFromHtml(post.body);
   return readingTime(wordCount);
 }

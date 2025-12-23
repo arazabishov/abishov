@@ -14,7 +14,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const formattedDate = formatDate(entry.data.date);
-const readTime = await getPostReadingTime(entry.id);
+const readTime = getPostReadingTime(entry);
 ---
 
 <div
