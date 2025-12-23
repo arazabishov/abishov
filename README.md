@@ -46,7 +46,6 @@ npm run format:check
 ```text
 ├── public/           # Static assets (favicon, fonts)
 ├── src/
-│   ├── assets/      # Images and media files
 │   ├── components/  # Reusable Astro components
 │   ├── content/     # Blog posts and content collections
 │   ├── layouts/     # Page layouts
