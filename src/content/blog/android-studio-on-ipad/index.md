@@ -1,13 +1,13 @@
 ---
-title: 'Exploring android development on iPad'
-description: 'Setting up Android Studio and emulators on an iPad using JetBrains Projector and VNC for remote development.'
+title: "Exploring android development on iPad"
+description: "Setting up Android Studio and emulators on an iPad using JetBrains Projector and VNC for remote development."
 pubDate: 2021-06-06
 ---
 
 <!-- Including the vimeo player for embedded videos -->
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-![Android Studio on iPad](../../assets/android-studio-on-ipad.jpg)
+![Android Studio on iPad](./android-studio-on-ipad.jpg)
 
 After Apple has announced M1 for iPads, people started speculating that we will see "pro" apps like Xcode announced for iPadOS during the upcoming WWDC. It got me thinking about the experience of building mobile apps on tablets, especially the workflow with emulators/simulators.
 
@@ -170,7 +170,7 @@ projector run as
 
 If you point the browser to `http://your_server_ip_addres:7070?token=your_password_here`, you will see Android Studio. Now you can go ahead and clone a project to the remote machine and start working on it.
 
-![Android Studio in Chrome](../../assets/android-studio.jpg)
+![Android Studio in Chrome](./android-studio.jpg)
 
 ### Android emulators
 

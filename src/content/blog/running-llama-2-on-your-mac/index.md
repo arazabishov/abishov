@@ -1,10 +1,10 @@
 ---
-title: 'Running LLaMA 2 models on your Mac'
-description: 'A step-by-step guide to building, converting, and running LLaMA 2 models locally using llama.cpp on macOS.'
+title: "Running LLaMA 2 models on your Mac"
+description: "A step-by-step guide to building, converting, and running LLaMA 2 models locally using llama.cpp on macOS."
 pubDate: 2023-07-23
 ---
 
-![Running LLaMA 2 model in llama.cpp chat](../../assets/llama-chat.png)
+![Running LLaMA 2 model in llama.cpp chat](./llama-chat.png)
 
 LLMs are the rage nowadays. Meta recently made [LLaMA 2 model weights](https://about.fb.com/news/2023/07/llama-2/) available for commercial use ([under some conditions](https://daringfireball.net/linked/2023/07/20/facebook-open-llama-2)), which means that mere mortals (like me) got access to building cool "AI"-y stuff without owning a personal data center.
 
@@ -65,7 +65,6 @@ python3 convert.py models/llama-2-7b/
 ```
 
 Once done, you can deactivate the virtual environment by typing `deactivate`. Now we need to quantize the model: convert the model weights from 16-bit floating-point numbers to 4-bit integers.
-
 
 ```sh
 # quantize the model to 4-bits (using q4_0 method)
