@@ -1,0 +1,29 @@
+---
+import Link from "./Link.astro";
+import FormattedDate from "./FormattedDate.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+---
+
+<div
+  class="hover:bg-muted/50 rounded-lg border p-4 transition-colors duration-200"
+>
+  <Link href={`/blog/${entry.id}`} class="block space-y-2">
+    <h3 class="text-lg font-medium">{entry.data.title}</h3>
+    {
+      entry.data.description && (
+        <p class="text-muted-foreground text-sm line-clamp-2">
+          {entry.data.description}
+        </p>
+      )
+    }
+    <p class="text-muted-foreground text-xs">
+      <FormattedDate date={entry.data.pubDate} />
+    </p>
+  </Link>
+</div>

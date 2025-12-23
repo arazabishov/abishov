@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { Site } from "@/core/constants";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Group posts by year
+const postsByYear = posts.reduce(
+  (acc, post) => {
+    const year = post.data.pubDate.getFullYear().toString();
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(post);
+    return acc;
+  },
+  {} as Record<string, typeof posts>,
+);
+
+const years = Object.keys(postsByYear).sort(
+  (a, b) => parseInt(b) - parseInt(a),
+);
+---
+
+<Layout
+  title={`Blog – ${Site.title}`}
+  description={Site.description}
+  class="max-w-3xl"
+>
+  <section class="space-y-8">
+    <h1 class="text-3xl font-bold">Blog</h1>
+    {
+      years.map((year) => (
+        <div class="space-y-4">
+          <h2 class="text-xl font-medium text-muted-foreground">{year}</h2>
+          <ul class="space-y-4">
+            {postsByYear[year].map((post) => (
+              <li>
+                <BlogCard entry={post} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </section>
+</Layout>
