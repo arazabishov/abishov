@@ -29,9 +29,6 @@ const sizeClasses: Record<string, string> = {
 };
 ---
 
-<button
-  class:list={[baseClasses, variantClasses[variant], sizeClasses[size], className]}
-  {...rest}
->
+<button class:list={[baseClasses, variantClasses[variant], sizeClasses[size], className]} {...rest}>
   <slot />
 </button>

@@ -27,9 +27,7 @@ const badgeClasses =
 ---
 
 <Layout post={post}>
-  <section
-    class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"
-  >
+  <section class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6">
     <div class="col-start-2">
       <Breadcrumbs
         items={[
@@ -45,10 +43,7 @@ const badgeClasses =
 
     <section class="col-start-2 flex flex-col gap-y-6 text-center">
       <div class="flex flex-col">
-        <h1
-          class="mb-2 scroll-mt-31 text-3xl leading-tight font-medium sm:text-4xl"
-          id="post-title"
-        >
+        <h1 class="mb-2 scroll-mt-31 text-3xl leading-tight font-medium sm:text-4xl" id="post-title">
           {title}
         </h1>
 
@@ -104,10 +99,7 @@ const badgeClasses =
     title="Scroll to top"
     aria-label="Scroll to top"
   >
-    <Icon
-      name="lucide:arrow-up"
-      class="mx-auto size-4 transition-all group-hover:-translate-y-0.5"
-    />
+    <Icon name="lucide:arrow-up" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" />
   </Button>
 
   <script>
@@ -124,10 +116,7 @@ const badgeClasses =
           const footerRect = footer.getBoundingClientRect();
           const isFooterVisible = footerRect.top <= window.innerHeight;
 
-          scrollToTopButton.classList.toggle(
-            "hidden",
-            window.scrollY <= 300 || isFooterVisible,
-          );
+          scrollToTopButton.classList.toggle("hidden", window.scrollY <= 300 || isFooterVisible);
         });
       }
     });

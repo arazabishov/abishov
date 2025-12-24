@@ -10,9 +10,7 @@ const projects = await getAllProjects();
 <Layout title="Projects" description="Open source projects and side projects" class="max-w-3xl">
   <Breadcrumbs items={[{ label: "Projects", icon: "lucide:folder-open" }]} />
   <section class="space-y-6">
-    <p class="text-muted-foreground">
-      A collection of open source projects and experiments I've worked on.
-    </p>
+    <p class="text-muted-foreground">A collection of open source projects and experiments I've worked on.</p>
 
     <ul class="flex flex-col gap-4">
       {projects.map((project) => <ProjectCard project={project} />)}

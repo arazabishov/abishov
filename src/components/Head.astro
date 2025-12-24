@@ -10,12 +10,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const {
-  title: propTitle,
-  description: propDescription,
-  post,
-  noindex = false,
-} = Astro.props;
+const { title: propTitle, description: propDescription, post, noindex = false } = Astro.props;
 
 const isPost = !!post;
 const title = post?.data.title || propTitle || SITE.title;
@@ -27,31 +22,17 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=yes"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="generator" content={Astro.generator} />
 
   <meta name="HandheldFriendly" content="True" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta
-    name="format-detection"
-    content="telephone=no,date=no,address=no,email=no,url=no"
-  />
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" />
 
-  <meta
-    name="theme-color"
-    content="#121212"
-    media="(prefers-color-scheme: dark)"
-  />
-  <meta
-    name="theme-color"
-    content="#121212"
-    media="(prefers-color-scheme: light)"
-  />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)" />
 
   <!-- SEO -->
   <title>{`${title} | ${SITE.title}`}</title>
@@ -77,32 +58,13 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <meta name="twitter:card" content="summary_large_image" />
   {isPost && <meta name="twitter:creator" content={SITE.author} />}
 
-  {post?.data.tags?.map((tag: string) => (
-    <meta property="article:tag" content={tag} />
-  ))}
+  {post?.data.tags?.map((tag: string) => <meta property="article:tag" content={tag} />)}
 
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link
-    rel="preload"
-    href="/fonts/GeistVF.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="/fonts/GeistMonoVF.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title={SITE.title}
-    href={new URL("rss.xml", Astro.site)}
-  />
+  <link rel="preload" href="/fonts/GeistVF.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/GeistMonoVF.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="alternate" type="application/rss+xml" title={SITE.title} href={new URL("rss.xml", Astro.site)} />
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

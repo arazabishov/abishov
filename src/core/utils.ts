@@ -13,9 +13,7 @@ function readingTime(wordCount: number): string {
 
 export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
   const posts = await getCollection("blog");
-  return posts
-    .filter((post) => !post.data.draft)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.filter((post) => !post.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
 export async function getAllProjects(): Promise<CollectionEntry<"projects">[]> {
@@ -33,30 +31,22 @@ export async function getAllTags(): Promise<Map<string, number>> {
   }, new Map<string, number>());
 }
 
-export async function getPostsByTag(
-  tag: string,
-): Promise<CollectionEntry<"blog">[]> {
+export async function getPostsByTag(tag: string): Promise<CollectionEntry<"blog">[]> {
   const posts = await getAllPosts();
   return posts.filter((post) => post.data.tags?.includes(tag));
 }
 
-export async function getRecentPosts(
-  count: number,
-): Promise<CollectionEntry<"blog">[]> {
+export async function getRecentPosts(count: number): Promise<CollectionEntry<"blog">[]> {
   const posts = await getAllPosts();
   return posts.slice(0, count);
 }
 
-export async function getRecentProjects(
-  count: number,
-): Promise<CollectionEntry<"projects">[]> {
+export async function getRecentProjects(count: number): Promise<CollectionEntry<"projects">[]> {
   const projects = await getAllProjects();
   return projects.slice(0, count);
 }
 
-export async function getSortedTags(): Promise<
-  { tag: string; count: number }[]
-> {
+export async function getSortedTags(): Promise<{ tag: string; count: number }[]> {
   const tagCounts = await getAllTags();
   return [...tagCounts.entries()]
     .map(([tag, count]) => ({ tag, count }))
@@ -71,9 +61,7 @@ export function getPostReadingTime(post: CollectionEntry<"blog">): string {
   return readingTime(wordCount);
 }
 
-export function groupPostsByYear(
-  posts: CollectionEntry<"blog">[],
-): Record<string, CollectionEntry<"blog">[]> {
+export function groupPostsByYear(posts: CollectionEntry<"blog">[]): Record<string, CollectionEntry<"blog">[]> {
   return posts.reduce(
     (acc, post) => {
       const year = post.data.date.getFullYear().toString();

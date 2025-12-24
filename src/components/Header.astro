@@ -5,13 +5,9 @@ import { NAV_LINKS, SITE } from "@/core/constants";
 ---
 
 <div>
-  <div
-    class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"
-  >
+  <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3">
     <Link href="/" class="flex shrink-0 items-center justify-center gap-3">
-      <span
-        class="hidden h-full text-lg leading-none font-medium min-[400px]:block"
-      >
+      <span class="hidden h-full text-lg leading-none font-medium min-[400px]:block">
         {SITE.title}
       </span>
     </Link>
@@ -19,10 +15,7 @@ import { NAV_LINKS, SITE } from "@/core/constants";
       <nav class="flex items-center gap-4 text-sm sm:gap-6">
         {
           NAV_LINKS.map((item) => (
-            <Link
-              href={item.href}
-              class="text-foreground/60 hover:text-foreground capitalize transition-colors"
-            >
+            <Link href={item.href} class="text-foreground/60 hover:text-foreground capitalize transition-colors">
               {item.label}
             </Link>
           ))

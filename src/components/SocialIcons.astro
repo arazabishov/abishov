@@ -17,20 +17,8 @@ const buttonClasses =
   {
     links.map(({ href, label }) => (
       <li>
-        <Link
-          href={href}
-          aria-label={label}
-          title={label}
-          class={buttonClasses}
-          external
-        >
-          <Icon
-            name={
-              ICON_MAP[label as keyof typeof ICON_MAP] ||
-              "lucide:message-circle-question"
-            }
-            class="size-4"
-          />
+        <Link href={href} aria-label={label} title={label} class={buttonClasses} external>
+          <Icon name={ICON_MAP[label as keyof typeof ICON_MAP] || "lucide:message-circle-question"} class="size-4" />
         </Link>
       </li>
     ))

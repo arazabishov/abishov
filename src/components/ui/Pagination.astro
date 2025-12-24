@@ -22,8 +22,7 @@ const linkSize = "size-9";
 const linkSizeDefault = "h-9 px-4 py-2";
 
 const ghostVariant = "hover:bg-muted hover:text-foreground";
-const outlineVariant =
-  "border bg-background hover:bg-muted hover:text-foreground";
+const outlineVariant = "border bg-background hover:bg-muted hover:text-foreground";
 ---
 
 <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center">
@@ -45,21 +44,19 @@ const outlineVariant =
       </a>
     </li>
 
-    {pages.map((page) => (
-      <li>
-        <a
-          href={getPageUrl(page)}
-          aria-current={page === currentPage ? "page" : undefined}
-          class:list={[
-            linkBase,
-            linkSize,
-            page === currentPage ? outlineVariant : ghostVariant,
-          ]}
-        >
-          {page}
-        </a>
-      </li>
-    ))}
+    {
+      pages.map((page) => (
+        <li>
+          <a
+            href={getPageUrl(page)}
+            aria-current={page === currentPage ? "page" : undefined}
+            class:list={[linkBase, linkSize, page === currentPage ? outlineVariant : ghostVariant]}
+          >
+            {page}
+          </a>
+        </li>
+      ))
+    }
 
     <li>
       <a

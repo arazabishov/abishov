@@ -64,8 +64,7 @@ const expressiveCodeConfig: AstroExpressiveCodeOptions = {
     uiFontFamily: "var(--font-sans)",
     frames: {
       editorActiveTabForeground: "var(--muted-foreground)",
-      editorActiveTabBackground:
-        "color-mix(in oklab, var(--muted) 25%, transparent)",
+      editorActiveTabBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
       editorActiveTabIndicatorBottomColor: "transparent",
       editorActiveTabIndicatorTopColor: "transparent",
       editorTabBorderRadius: "0",

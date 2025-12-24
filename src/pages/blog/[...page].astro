@@ -7,11 +7,7 @@ import Layout from "@/layouts/Layout.astro";
 import { getAllPosts, groupPostsByYear } from "@/core/utils";
 import type { PaginateFunction } from "astro";
 
-export async function getStaticPaths({
-  paginate,
-}: {
-  paginate: PaginateFunction;
-}) {
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   const allPosts = await getAllPosts();
   return paginate(allPosts, { pageSize: SITE.postsPerPage });
 }
@@ -19,9 +15,7 @@ export async function getStaticPaths({
 const { page } = Astro.props;
 
 const postsByYear = groupPostsByYear(page.data);
-const years = Object.keys(postsByYear).sort(
-  (a, b) => parseInt(b) - parseInt(a),
-);
+const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <Layout title="Blog" class="max-w-3xl">
@@ -49,9 +43,5 @@ const years = Object.keys(postsByYear).sort(
     }
   </div>
 
-  <Pagination
-    currentPage={page.currentPage}
-    totalPages={page.lastPage}
-    baseUrl="/blog/"
-  />
+  <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl="/blog/" />
 </Layout>

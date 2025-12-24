@@ -39,10 +39,7 @@ const { items } = Astro.props;
                 <span>{item.label}</span>
               </span>
             ) : (
-              <a
-                href={item.href}
-                class="hover:text-foreground transition-colors flex items-center gap-x-2"
-              >
+              <a href={item.href} class="hover:text-foreground transition-colors flex items-center gap-x-2">
                 {item.icon && <Icon name={item.icon} class="size-4 shrink-0" />}
                 <span>{item.label}</span>
               </a>

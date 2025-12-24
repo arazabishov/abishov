@@ -19,5 +19,8 @@ charset = utf-8
 # Remove trailing whitespace on save
 trim_trailing_whitespace = true
 
+# Maximum line length
+max_line_length = 120
+
 # Ensure file ends with a newline
 insert_final_newline = true

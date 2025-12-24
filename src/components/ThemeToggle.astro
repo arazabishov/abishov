@@ -3,13 +3,7 @@ import Button from "@/components/ui/Button.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<Button
-  id="theme-toggle"
-  variant="ghost"
-  size="icon"
-  title="Toggle theme"
-  class="-my-2 -me-2 size-8"
->
+<Button id="theme-toggle" variant="ghost" size="icon" title="Toggle theme" class="-my-2 -me-2 size-8">
   <Icon name="lucide:sun" class="size-4 dark:hidden" />
   <Icon name="lucide:moon" class="absolute hidden size-4 dark:block" />
   <span class="sr-only">Toggle theme</span>
@@ -20,9 +14,7 @@ import { Icon } from "astro-icon/components";
     const theme = (() => {
       const stored = localStorage?.getItem("theme") ?? "";
       if (["dark", "light"].includes(stored)) return stored;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     })();
 
     document.documentElement.setAttribute("data-theme", theme);
@@ -48,9 +40,7 @@ import { Icon } from "astro-icon/components";
   }
 
   function initThemeToggle() {
-    document
-      .getElementById("theme-toggle")
-      ?.addEventListener("click", handleToggleClick);
+    document.getElementById("theme-toggle")?.addEventListener("click", handleToggleClick);
   }
 
   initThemeToggle();

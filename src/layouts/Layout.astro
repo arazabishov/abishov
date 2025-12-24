@@ -15,20 +15,11 @@ interface Props {
   class?: string;
 }
 
-const {
-  title = SITE.title,
-  description = SITE.description,
-  post,
-  noindex,
-  class: className,
-} = Astro.props;
+const { title = SITE.title, description = SITE.description, post, noindex, class: className } = Astro.props;
 ---
 
 <!doctype html>
-<html
-  class="bg-background text-foreground scheme-light-dark"
-  lang={SITE.locale}
->
+<html class="bg-background text-foreground scheme-light-dark" lang={SITE.locale}>
   <Head title={title} description={description} post={post} noindex={noindex}>
     <slot name="head" />
   </Head>
@@ -36,9 +27,7 @@ const {
     <header class="bg-background/50 sticky top-0 z-50 backdrop-blur-sm">
       <Header />
     </header>
-    <main
-      class:list={["w-full mx-auto flex grow flex-col gap-y-6 px-4", className]}
-    >
+    <main class:list={["w-full mx-auto flex grow flex-col gap-y-6 px-4", className]}>
       <slot />
     </main>
     <Footer />
