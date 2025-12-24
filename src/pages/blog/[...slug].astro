@@ -27,7 +27,6 @@ const badgeClasses =
 ---
 
 <Layout post={post}>
-
   <section
     class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"
   >
@@ -82,10 +81,7 @@ const badgeClasses =
             tags &&
               tags.length > 0 &&
               tags.map((tag) => (
-                <a
-                  href={`/tags/${tag}`}
-                  class={badgeClasses}
-                >
+                <a href={`/tags/${tag}`} class={badgeClasses}>
                   <Icon name="lucide:hash" class="size-3" />
                   {tag}
                 </a>
