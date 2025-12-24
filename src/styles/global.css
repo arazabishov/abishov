@@ -1,9 +1,12 @@
+@import "@fontsource/geist-mono";
+@import "@fontsource/geist-sans";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 /* Apply dark: styles when data-theme="dark" is present on the element or an ancestor */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* Colors are defined in oklch(Lightness Chroma Hue) for better perceptual uniformity and wider gamut support */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -15,6 +18,7 @@
   --ring: oklch(0.708 0 0);
 }
 
+/* Dark mode overrides: these values replace the :root values when the theme is dark */
 [data-theme="dark"] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -25,41 +29,23 @@
   --border: oklch(1 0 0 / 10%);
   --ring: oklch(0.556 0 0);
 }
+
 @theme inline {
+  /* Fallback fonts from Tailwind CSS defaults: https://tailwindcss.com/docs/font-family */
   --font-sans:
-    Geist, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Geist Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
-
+  /* Fallback fonts from Tailwind CSS defaults: https://tailwindcss.com/docs/font-family */
   --font-mono:
-    Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
   --color-border: var(--border);
   --color-ring: var(--ring);
-}
-
-@font-face {
-  font-family: "Geist";
-  src: url("/fonts/GeistVF.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Geist Mono";
-  src: url("/fonts/GeistMonoVF.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
 }
 
 @layer base {
