@@ -15,7 +15,7 @@ const { href, external, class: className, underline, ...rest } = Astro.props;
   target={external ? "_blank" : "_self"}
   class:list={[
     "transition-colors duration-300 ease-in-out",
-    underline && "underline decoration-muted-foreground underline-offset-[3px] hover:decoration-foreground",
+    underline && "decoration-muted-foreground hover:decoration-foreground underline underline-offset-[3px]",
     className,
   ]}
   {...rest}

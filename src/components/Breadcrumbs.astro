@@ -33,13 +33,13 @@ const { items } = Astro.props;
                 role="link"
                 aria-disabled="true"
                 aria-current="page"
-                class="text-foreground font-normal flex items-center gap-x-2"
+                class="text-foreground flex items-center gap-x-2 font-normal"
               >
                 {item.icon && <Icon name={item.icon} class="size-4 shrink-0" />}
                 <span>{item.label}</span>
               </span>
             ) : (
-              <a href={item.href} class="hover:text-foreground transition-colors flex items-center gap-x-2">
+              <a href={item.href} class="hover:text-foreground flex items-center gap-x-2 transition-colors">
                 {item.icon && <Icon name={item.icon} class="size-4 shrink-0" />}
                 <span>{item.label}</span>
               </a>

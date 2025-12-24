@@ -135,7 +135,7 @@
 
     /* Headings */
     & :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-      @apply font-medium scroll-mt-32 xl:scroll-mt-20;
+      @apply scroll-mt-32 font-medium xl:scroll-mt-20;
     }
 
     /* Links */
@@ -145,7 +145,7 @@
 
     /* Blockquotes */
     & :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-      @apply not-italic border-l-2 pl-6;
+      @apply border-l-2 pl-6 not-italic;
     }
 
     /* Images and code blocks */
