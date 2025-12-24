@@ -8,7 +8,7 @@ import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-s
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import { type AstroExpressiveCodeOptions } from "astro-expressive-code";
 
-// Languages that should not show line numbers (terminal/shell languages)
+// Languages that should not show line numbers (terminal/shell languages).
 const terminalLanguages = [
   "ansi",
   "bat",
@@ -32,23 +32,23 @@ const terminalLanguages = [
 const expressiveCodeConfig: AstroExpressiveCodeOptions = {
   themes: ["github-light", "github-dark"],
   plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
-  // Disable automatic prefers-color-scheme detection; we control theme via data-theme attribute
+  // Disable automatic prefers-color-scheme detection; we control theme via data-theme attribute.
   useDarkModeMediaQuery: false,
-  // Maps expressive-code themes to our data-theme attribute for theme synchronization
+  // Maps expressive-code themes to our data-theme attribute for theme synchronization.
   themeCssSelector: (theme: { name: string }) => {
-    // ["github", "light"] or ["github", "dark"]
+    // ["github", "light"] or ["github", "dark"].
     const parts = theme.name.split("-");
 
-    // default to "light" if no "-" found
+    // Default to "light" if no "-" found.
     const mode = parts.length > 1 ? parts[1] : "light";
 
-    // return selector like [data-theme="light"] or [data-theme="dark"]
+    // Return selector like [data-theme="light"] or [data-theme="dark"].
     return `[data-theme="${mode}"]`;
   },
   defaultProps: {
-    // Enable soft-wrapping of long lines instead of horizontal scrolling
+    // Enable soft-wrapping of long lines instead of horizontal scrolling.
     wrap: true,
-    // Auto-collapse code blocks that exceed a certain height
+    // Auto-collapse code blocks that exceed a certain height.
     collapseStyle: "collapsible-auto",
     overridesByLang: {
       [terminalLanguages.join(",")]: {
@@ -83,24 +83,32 @@ const expressiveCodeConfig: AstroExpressiveCodeOptions = {
 };
 
 export default defineConfig({
-  // Used for generating absolute URLs in RSS feed and sitemap
+  // Used for generating absolute URLs in RSS feed and sitemap.
   site: "https://abishov.com",
-  // Prefetch links on hover for faster navigation
+  // Prefetch links on hover for faster navigation.
   prefetch: true,
-  // expressiveCode must be before any other markdown integration
+  // expressiveCode must be before any other markdown integration.
   integrations: [expressiveCode(expressiveCodeConfig), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
   },
   markdown: {
-    // Rehype plugins transform HTML after markdown is parsed
+    // Rehype plugins transform HTML after markdown is parsed.
     rehypePlugins: [
-      // Opens external links in new tab with security attributes
+      // Opens external links in new tab with security attributes.
       [
         rehypeExternalLinks,
         {
+          // Opens link in a new tab instead of navigating away.
           target: "_blank",
-          rel: ["nofollow", "noreferrer", "noopener"],
+          rel: [
+            // Tells search engines not to pass SEO value to external site.
+            "nofollow",
+            // Hides referrer info from the destination site.
+            "noreferrer",
+            // Prevents new page from accessing window.opener (security).
+            "noopener",
+          ],
         },
       ],
     ],
