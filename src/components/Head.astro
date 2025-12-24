@@ -1,6 +1,7 @@
 ---
 import { SITE } from "@/core/constants";
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -20,6 +21,10 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
 ---
 
 <head>
+  <!-- Astro experimental fonts API: preloads fonts and generates optimized fallbacks -->
+  <Font cssVariable="--font-sans" preload />
+  <Font cssVariable="--font-mono" preload />
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -62,8 +67,6 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
 
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preload" href="/fonts/GeistVF.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/GeistMonoVF.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="alternate" type="application/rss+xml" title={SITE.title} href={new URL("rss.xml", Astro.site)} />
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

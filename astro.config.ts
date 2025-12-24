@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
@@ -87,6 +87,43 @@ export default defineConfig({
   site: "https://abishov.com",
   // Prefetch links on hover for faster navigation.
   prefetch: true,
+  // Experimental features
+  experimental: {
+    // Fallbacks from Tailwind CSS defaults: https://tailwindcss.com/docs/font-family
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        cssVariable: "--font-sans",
+        weights: ["100 900"],
+        name: "Geist",
+        fallbacks: [
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+      },
+      {
+        provider: fontProviders.fontsource(),
+        cssVariable: "--font-mono",
+        weights: ["100 900"],
+        name: "Geist Mono",
+        fallbacks: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
+      },
+    ],
+  },
   // expressiveCode must be before any other markdown integration.
   integrations: [expressiveCode(expressiveCodeConfig), sitemap(), icon()],
   vite: {

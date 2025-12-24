@@ -1,5 +1,3 @@
-@import "@fontsource/geist-mono";
-@import "@fontsource/geist-sans";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -31,13 +29,10 @@
 }
 
 @theme inline {
-  /* Fallback fonts from Tailwind CSS defaults: https://tailwindcss.com/docs/font-family */
-  --font-sans:
-    "Geist Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  /* Fallback fonts from Tailwind CSS defaults: https://tailwindcss.com/docs/font-family */
-  --font-mono:
-    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* Font families from Astro's experimental fonts API */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -49,15 +44,21 @@
 }
 
 @layer base {
+  /* Global defaults for all elements, pseudo-elements, and UI controls */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    @apply border-border outline-ring/50 tracking-tight;
+    /* Sets default border color to theme's border color */
+    @apply border-border;
+    /* Sets focus outline color to theme's ring color at 50% opacity */
+    @apply outline-ring/50;
+    /* Reduces letter-spacing for a more compact, modern look */
+    @apply tracking-tight;
   }
 
-  /* Typography base styles */
+  /* Prevent long words from overflowing their container by allowing breaks */
   p,
   h1,
   h2,
@@ -68,6 +69,7 @@
     @apply wrap-break-word;
   }
 
+  /* Balance line lengths in headings for better visual rhythm */
   h1,
   h2,
   h3,
@@ -77,6 +79,7 @@
     @apply text-balance;
   }
 
+  /* Improve paragraph readability by avoiding orphans and awkward line breaks */
   p {
     @apply text-pretty;
   }
@@ -105,42 +108,42 @@
     --tw-prose-td-borders: var(--border);
 
     /* Inline code styling */
-    & :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(code) {
       @apply bg-muted/50 rounded-sm px-[0.3rem] py-[0.2rem] text-sm font-medium;
     }
 
-    & :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
-    & :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+    & :where(code)::before,
+    & :where(code)::after {
       content: none;
     }
 
     /* Headings */
-    & :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(h1, h2, h3, h4, h5, h6) {
       @apply scroll-mt-32 font-medium xl:scroll-mt-20;
     }
 
     /* Links */
-    & :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(a) {
       @apply decoration-muted-foreground hover:decoration-foreground underline-offset-[3px] transition-colors;
     }
 
     /* Blockquotes */
-    & :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(blockquote) {
       @apply border-l-2 pl-6 not-italic;
     }
 
     /* Images and code blocks */
-    & :where(img, video, figure, .expressive-code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(img, video, figure, .expressive-code) {
       @apply mx-auto;
     }
 
     /* Pre blocks */
-    & :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(pre) {
       @apply max-h-[min(68vh,1000px)]! overflow-y-auto;
     }
 
     /* Keyboard */
-    & :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    & :where(kbd) {
       @apply bg-muted rounded-md border px-2 py-1 text-xs;
     }
   }
