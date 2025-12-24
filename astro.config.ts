@@ -93,7 +93,7 @@ export default defineConfig({
     fonts: [
       {
         provider: fontProviders.fontsource(),
-        cssVariable: "--font-sans",
+        cssVariable: "--font-geist",
         weights: ["100 900"],
         name: "Geist",
         fallbacks: [
@@ -108,7 +108,7 @@ export default defineConfig({
       },
       {
         provider: fontProviders.fontsource(),
-        cssVariable: "--font-mono",
+        cssVariable: "--font-geist-mono",
         weights: ["100 900"],
         name: "Geist Mono",
         fallbacks: [

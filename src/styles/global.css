@@ -29,9 +29,9 @@
 }
 
 @theme inline {
-  /* Font families from Astro's experimental fonts API */
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  /* Map Astro's font variables to Tailwind's theme */
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
