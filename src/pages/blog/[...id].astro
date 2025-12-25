@@ -23,6 +23,20 @@ const { Content } = await render(post);
 const { title, created, updated, image, tags } = post.data;
 
 const postReadingTime = getPostReadingTime(post);
+
+const itemClasses = [
+  "flex",
+  "w-full",
+  "items-center",
+  "justify-center",
+  "gap-2",
+  "py-2",
+  "sm:w-fit",
+  "sm:px-2",
+  "sm:py-0",
+  "first:sm:pl-0",
+  "last:sm:pr-0",
+];
 ---
 
 <Layout post={post}>
@@ -85,60 +99,17 @@ const postReadingTime = getPostReadingTime(post);
             "sm:text-sm",
           ]}
         >
-          <div
-            class:list={[
-              "flex",
-              "w-full",
-              "items-center",
-              "justify-center",
-              "gap-2",
-              "py-2",
-              "sm:w-fit",
-              "sm:px-2",
-              "sm:py-0",
-              "first:sm:pl-0",
-              "last:sm:pr-0",
-            ]}
-          >
+          <div class:list={itemClasses}>
             <span>{formatDate(created)}</span>
           </div>
 
-          <div
-            class:list={[
-              "flex",
-              "w-full",
-              "items-center",
-              "justify-center",
-              "gap-2",
-              "py-2",
-              "sm:w-fit",
-              "sm:px-2",
-              "sm:py-0",
-              "first:sm:pl-0",
-              "last:sm:pr-0",
-            ]}
-          >
+          <div class:list={itemClasses}>
             <span>{postReadingTime}</span>
           </div>
 
           {
             updated && (
-              <div
-                class:list={[
-                  "flex",
-                  "w-full",
-                  "items-center",
-                  "justify-center",
-                  "gap-2",
-                  "py-2",
-                  "sm:w-fit",
-                  "sm:px-2",
-                  "sm:py-0",
-                  "first:sm:pl-0",
-                  "last:sm:pr-0",
-                  "italic",
-                ]}
-              >
+              <div class:list={[itemClasses, "italic"]}>
                 <span class="italic">Updated: {formatDate(updated)}</span>
               </div>
             )
