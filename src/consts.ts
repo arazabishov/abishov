@@ -1,4 +1,4 @@
-import type { Site, SocialLink, IconMap } from "./types";
+import type { IconMap, Site, SocialLink } from "./types";
 
 export const SITE: Site = {
   title: "Araz Abishov",

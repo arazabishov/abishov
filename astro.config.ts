@@ -1,12 +1,11 @@
-import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import icon from "astro-icon";
-import expressiveCode from "astro-expressive-code";
-import rehypeExternalLinks from "rehype-external-links";
-import tailwindcss from "@tailwindcss/vite";
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
-import { type AstroExpressiveCodeOptions } from "astro-expressive-code";
+import tailwindcss from "@tailwindcss/vite";
+import expressiveCode, { type AstroExpressiveCodeOptions } from "astro-expressive-code";
+import icon from "astro-icon";
+import { defineConfig, fontProviders } from "astro/config";
+import rehypeExternalLinks from "rehype-external-links";
 
 // Languages that should not show line numbers (terminal/shell languages).
 const terminalLanguages = [
