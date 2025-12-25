@@ -1,21 +1,38 @@
 ---
-interface Props {
-  variant?: "default" | "muted" | "outline";
-  class?: string;
-}
+import type { HTMLAttributes } from "astro/types";
 
-const { variant = "default", class: className } = Astro.props;
+type Props = HTMLAttributes<"span">;
 
-const baseClasses =
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none transition-[background-color,color] duration-200 overflow-hidden";
-
-const variantClasses: Record<string, string> = {
-  default: "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
-  muted: "border-transparent bg-muted text-foreground [a&]:hover:bg-muted/90",
-  outline: "text-foreground [a&]:hover:bg-muted [a&]:hover:text-foreground",
-};
+const { class: className, ...rest } = Astro.props;
 ---
 
-<span class:list={[baseClasses, variantClasses[variant], className]}>
+<span
+  class:list={[
+    "inline-flex",
+    "items-center",
+    "justify-center",
+    "rounded-md",
+    "border",
+    "border-transparent",
+    "px-2",
+    "py-0.5",
+    "text-xs",
+    "font-medium",
+    "w-fit",
+    "whitespace-nowrap",
+    "shrink-0",
+    "[&>svg]:size-3",
+    "gap-1",
+    "[&>svg]:pointer-events-none",
+    "transition-[background-color]",
+    "duration-200",
+    "overflow-hidden",
+    "bg-muted",
+    "text-foreground",
+    "[a&]:hover:bg-muted/90",
+    className,
+  ]}
+  {...rest}
+>
   <slot />
 </span>
