@@ -7,7 +7,11 @@ import { getAllProjects } from "@/core/content";
 const projects = await getAllProjects();
 ---
 
-<Layout title="Projects" description="Open source projects and side projects" class="max-w-3xl">
+<Layout
+  title="Projects"
+  description="A showcase of my open source contributions and personal projects"
+  class="max-w-3xl"
+>
   <Breadcrumbs items={[{ label: "Projects", icon: "lucide:folder-open" }]} />
   <section class="space-y-6">
     <p class="text-muted-foreground">A collection of open source projects and experiments I've worked on.</p>

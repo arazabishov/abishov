@@ -9,7 +9,10 @@ import type { PaginateFunction } from "astro";
 
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   const allPosts = await getAllPosts();
-  return paginate(allPosts, { pageSize: SITE.postsPerPage });
+
+  return paginate(allPosts, {
+    pageSize: SITE.postsPerPage,
+  });
 }
 
 const { page } = Astro.props;
