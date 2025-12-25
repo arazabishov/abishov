@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Button from "@/components/ui/Button.astro";
 import BlogCard from "@/components/cards/BlogCard.astro";
 import ProjectCard from "@/components/cards/ProjectCard.astro";
 import { SITE } from "@/consts";
@@ -37,10 +37,10 @@ const projects = await getRecentProjects(SITE.featuredCount);
       }
     </ul>
     <div class="flex justify-center">
-      <ButtonLink href="/blog" variant="ghost" class="group">
+      <Button href="/blog" variant="ghost" class="group">
         See all posts
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
-      </ButtonLink>
+      </Button>
     </div>
   </section>
 
@@ -57,10 +57,10 @@ const projects = await getRecentProjects(SITE.featuredCount);
       }
     </ul>
     <div class="flex justify-center">
-      <ButtonLink href="/projects" variant="ghost" class="group">
+      <Button href="/projects" variant="ghost" class="group">
         See all projects
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
-      </ButtonLink>
+      </Button>
     </div>
   </section>
 </Layout>

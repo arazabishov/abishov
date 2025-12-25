@@ -1,9 +1,22 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"button"> {
+interface ButtonProps extends HTMLAttributes<"button"> {
   variant?: "outline" | "ghost";
   size?: "default" | "sm" | "lg" | "icon";
+}
+
+interface LinkProps extends HTMLAttributes<"a"> {
+  href: string;
+  external?: boolean;
+  variant?: "outline" | "ghost";
+  size?: "default" | "sm" | "lg" | "icon";
+}
+
+type Props = ButtonProps | LinkProps;
+
+function isLink(props: Props): props is LinkProps {
+  return "href" in props && typeof props.href === "string";
 }
 
 const { variant = "outline", size = "default", class: className, ...rest } = Astro.props;
@@ -47,8 +60,18 @@ const sizeClasses: Record<string, string> = {
   lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
   icon: "size-9",
 };
+
+const classes = [baseClasses, variantClasses[variant], sizeClasses[size], className];
 ---
 
-<button class:list={[baseClasses, variantClasses[variant], sizeClasses[size], className]} {...rest}>
-  <slot />
-</button>
+{
+  isLink(Astro.props) ? (
+    <a href={Astro.props.href} target={Astro.props.external ? "_blank" : "_self"} class:list={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button class:list={classes} {...(rest as HTMLAttributes<"button">)}>
+      <slot />
+    </button>
+  )
+}

@@ -1,5 +1,5 @@
 ---
-import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Button from "@/components/ui/Button.astro";
 import { ICON_MAP } from "@/consts";
 import type { SocialLink } from "@/types";
 import { Icon } from "astro-icon/components";
@@ -15,9 +15,9 @@ const { links } = Astro.props;
   {
     links.map(({ href, label }) => (
       <li>
-        <ButtonLink href={href} aria-label={label} title={label} size="icon" external>
+        <Button href={href} aria-label={label} title={label} size="icon" external>
           <Icon name={ICON_MAP[label as keyof typeof ICON_MAP] || "lucide:message-circle-question"} class="size-4" />
-        </ButtonLink>
+        </Button>
       </li>
     ))
   }
