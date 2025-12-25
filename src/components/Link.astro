@@ -1,10 +1,10 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
   href: string;
   external?: boolean;
-  class?: string;
   underline?: boolean;
-  [key: string]: any;
 }
 
 const { href, external, class: className, underline, ...rest } = Astro.props;
@@ -14,8 +14,15 @@ const { href, external, class: className, underline, ...rest } = Astro.props;
   href={href}
   target={external ? "_blank" : "_self"}
   class:list={[
-    underline &&
-      "underline decoration-muted-foreground underline-offset-[3px] transition-[text-decoration-color] duration-300 ease-in-out hover:decoration-foreground",
+    underline && [
+      "underline",
+      "underline-offset-[3px]",
+      "decoration-muted-foreground",
+      "hover:decoration-foreground",
+      "transition-[text-decoration-color]",
+      "duration-300",
+      "ease-in-out",
+    ],
     className,
   ]}
   {...rest}
