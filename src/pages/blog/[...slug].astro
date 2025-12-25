@@ -1,8 +1,8 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import Button from "@/components/Button.astro";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs.astro";
+import Button from "@/components/ui/Button.astro";
 import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 
@@ -99,7 +99,10 @@ const badgeClasses =
     title="Scroll to top"
     aria-label="Scroll to top"
   >
-    <Icon name="lucide:arrow-up" class="mx-auto size-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
+    <Icon
+      name="lucide:arrow-up"
+      class="mx-auto size-4 transition-transform duration-200 group-hover:-translate-y-0.5"
+    />
   </Button>
 
   <script>
