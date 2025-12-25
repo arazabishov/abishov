@@ -13,7 +13,7 @@ export async function getAllTags(): Promise<Map<string, number>> {
   const posts = await getAllPosts();
   return posts.reduce((acc, post) => {
     post.data.tags?.forEach((tag) => {
-      acc.set(tag, (acc.get(tag) || 0) + 1);
+      acc.set(tag, (acc.get(tag) ?? 0) + 1);
     });
     return acc;
   }, new Map<string, number>());

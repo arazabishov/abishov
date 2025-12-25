@@ -8,9 +8,26 @@ import { getRecentPosts, getRecentProjects } from "@/core/content";
 
 const posts = await getRecentPosts(SITE.featuredCount);
 const projects = await getRecentProjects(SITE.featuredCount);
-
-const ghostButtonClasses =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[background-color,color] duration-200 outline-none h-9 px-4 py-2 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 group";
+const classes = [
+  "inline-flex",
+  "items-center",
+  "justify-center",
+  "gap-2",
+  "whitespace-nowrap",
+  "rounded-md",
+  "text-sm",
+  "font-medium",
+  "transition-[background-color,color]",
+  "duration-200",
+  "outline-none",
+  "h-9",
+  "px-4",
+  "py-2",
+  "hover:bg-muted",
+  "hover:text-foreground",
+  "dark:hover:bg-muted/50",
+  "group",
+];
 ---
 
 <Layout title="Home" class="max-w-3xl">
@@ -40,7 +57,7 @@ const ghostButtonClasses =
       }
     </ul>
     <div class="flex justify-center">
-      <Link href="/blog" class={ghostButtonClasses}>
+      <Link href="/blog" class:list={classes}>
         See all posts
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
       </Link>
@@ -60,7 +77,7 @@ const ghostButtonClasses =
       }
     </ul>
     <div class="flex justify-center">
-      <Link href="/projects" class={ghostButtonClasses}>
+      <Link href="/projects" class:list={classes}>
         See all projects
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
       </Link>
