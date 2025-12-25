@@ -1,9 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Link from "@/components/Link.astro";
-
-const buttonClasses =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[background-color,border-color,color] duration-200 outline-none h-9 px-4 py-2 border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50";
 ---
 
 <Layout title="Page Not Found" noindex class="max-w-3xl">
@@ -13,6 +10,33 @@ const buttonClasses =
     <p class="text-muted-foreground max-w-md text-center">
       The page you're looking for doesn't exist or has been moved.
     </p>
-    <Link href="/" class={buttonClasses}> Go back home </Link>
+    <Link
+      href="/"
+      class:list={[
+        "inline-flex",
+        "items-center",
+        "justify-center",
+        "gap-2",
+        "whitespace-nowrap",
+        "rounded-md",
+        "text-sm",
+        "font-medium",
+        "transition-[background-color,border-color,color]",
+        "duration-200",
+        "outline-none",
+        "h-9",
+        "px-4",
+        "py-2",
+        "border",
+        "bg-background",
+        "hover:bg-muted",
+        "hover:text-foreground",
+        "dark:bg-input/30",
+        "dark:border-input",
+        "dark:hover:bg-input/50",
+      ]}
+    >
+      Go back home
+    </Link>
   </section>
 </Layout>
