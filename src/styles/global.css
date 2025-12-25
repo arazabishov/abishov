@@ -44,6 +44,11 @@
 }
 
 @layer base {
+  /* Reserve space for scrollbar to prevent layout shift when navigating between pages */
+  html {
+    scrollbar-gutter: stable;
+  }
+
   /* Global defaults for all elements, pseudo-elements, and UI controls */
   *,
   ::after,
