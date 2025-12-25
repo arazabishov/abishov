@@ -14,8 +14,8 @@ interface Props {
 const { title: propTitle, description: propDescription, post, noindex = false } = Astro.props;
 
 const isPost = !!post;
-const title = post?.data.title || propTitle || SITE.title;
-const description = post?.data.description || propDescription || SITE.description;
+const title = post?.data.title ?? propTitle ?? SITE.title;
+const description = post?.data.description ?? propDescription ?? SITE.description;
 const defaultImage = new URL("/static/og.png", Astro.site);
 const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : defaultImage;
 ---
@@ -46,6 +46,7 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <link rel="canonical" href={SITE.href} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
 
+  <!-- Open Graph / Facebook -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
@@ -56,6 +57,7 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <meta property="og:url" content={Astro.url} />
   {isPost && <meta property="og:author" content={SITE.author} />}
 
+  <!-- Twitter -->
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
@@ -68,12 +70,12 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="alternate" type="application/rss+xml" title={SITE.title} href={new URL("rss.xml", Astro.site)} />
-
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content={SITE.title} />
+
   <ClientRouter />
 
   <slot />
