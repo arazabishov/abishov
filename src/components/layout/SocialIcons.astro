@@ -1,5 +1,5 @@
 ---
-import Link from "@/components/ui/Link.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
 import { ICON_MAP } from "@/consts";
 import type { SocialLink } from "@/types";
 import { Icon } from "astro-icon/components";
@@ -9,37 +9,15 @@ interface Props {
 }
 
 const { links } = Astro.props;
-
-const buttonClasses = [
-  "inline-flex",
-  "items-center",
-  "justify-center",
-  "gap-2",
-  "whitespace-nowrap",
-  "rounded-md",
-  "text-sm",
-  "font-medium",
-  "transition-[background-color,border-color,color]",
-  "duration-200",
-  "outline-none",
-  "size-9",
-  "border",
-  "bg-background",
-  "hover:bg-muted",
-  "hover:text-foreground",
-  "dark:bg-input/30",
-  "dark:border-input",
-  "dark:hover:bg-input/50",
-];
 ---
 
 <ul class="flex flex-wrap gap-2" role="list">
   {
     links.map(({ href, label }) => (
       <li>
-        <Link href={href} aria-label={label} title={label} class:list={buttonClasses} external>
+        <ButtonLink href={href} aria-label={label} title={label} size="icon" external>
           <Icon name={ICON_MAP[label as keyof typeof ICON_MAP] || "lucide:message-circle-question"} class="size-4" />
-        </Link>
+        </ButtonLink>
       </li>
     ))
   }
