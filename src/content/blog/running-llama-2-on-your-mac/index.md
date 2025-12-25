@@ -6,8 +6,6 @@ tags: ["ai", "llm"]
 image: ./llama-chat.png
 ---
 
-![Running LLaMA 2 model in llama.cpp chat](./llama-chat.png)
-
 LLMs are the rage nowadays. Meta recently made [LLaMA 2 model weights](https://about.fb.com/news/2023/07/llama-2/) available for commercial use ([under some conditions](https://daringfireball.net/linked/2023/07/20/facebook-open-llama-2)), which means that mere mortals (like me) got access to building cool "AI"-y stuff without owning a personal data center.
 
 To get a sense of how to interact with the model, I wanted to build and run it on my machine first. I don't have a beefy workstation with chonky GPU-s in it, but thanks to [Georgi Gerganov](https://github.com/ggerganov), I don't need to: [llama.cpp](https://github.com/ggerganov/llama.cpp).

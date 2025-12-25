@@ -9,8 +9,6 @@ image: ./android-studio-on-ipad.jpg
 <!-- Including the vimeo player for embedded videos -->
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-![Android Studio on iPad](./android-studio-on-ipad.jpg)
-
 After Apple has announced M1 for iPads, people started speculating that we will see "pro" apps like Xcode announced for iPadOS during the upcoming WWDC. It got me thinking about the experience of building mobile apps on tablets, especially the workflow with emulators/simulators.
 
 A couple of months ago, I came across the [blog post](https://medium.com/swlh/how-to-run-android-studio-on-any-device-with-jetbrains-projector-3d9d23a8c179) of Joaquim Verges that showed how [Projector](https://blog.jetbrains.com/blog/2021/03/11/projector-is-out/) could be used to enable remote IDE experience. Essentially, Projector allows running IntelliJ-based IDEs, such as Android Studio, on a remote machine with a lot of computing power. Since Projector draws UI in a browser, your favorite IDE becomes available anywhere, including iPads.
