@@ -1,7 +1,7 @@
 ---
 title: "Cutting boilerplate in UI tests"
 description: "Reducing repetitive screenshot capturing logic in Android UI tests using custom JUnit rules."
-date: 2017-11-05
+created: 2017-11-05
 tags: ["android", "testing"]
 ---
 

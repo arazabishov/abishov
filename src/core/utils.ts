@@ -13,7 +13,7 @@ function readingTime(wordCount: number): string {
 
 export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
   const posts = await getCollection("blog");
-  return posts.filter((post) => !post.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.filter((post) => !post.data.draft).sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
 }
 
 export async function getAllProjects(): Promise<CollectionEntry<"projects">[]> {
@@ -64,7 +64,7 @@ export function getPostReadingTime(post: CollectionEntry<"blog">): string {
 export function groupPostsByYear(posts: CollectionEntry<"blog">[]): Record<string, CollectionEntry<"blog">[]> {
   return posts.reduce(
     (acc, post) => {
-      const year = post.data.date.getFullYear().toString();
+      const year = post.data.created.getFullYear().toString();
       if (!acc[year]) acc[year] = [];
       acc[year].push(post);
       return acc;

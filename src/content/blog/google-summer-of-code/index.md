@@ -1,7 +1,7 @@
 ---
 title: "The road from Google Summer of Code student to organization administrator"
 description: "My journey through Google Summer of Code from 2013 to 2016, from being a student to becoming an organization administrator."
-date: 2016-09-28
+created: 2016-09-28
 tags: ["open-source", "career"]
 image: ./google-summer-of-code-2016.png
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 2"
 description: "Integrating Rocket framework with the hexocat bot and exposing it to the internet using ngrok."
-date: 2017-08-08
+created: 2017-08-08
 tags: ["rust", "web"]
 ---
 

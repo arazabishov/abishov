@@ -1,7 +1,7 @@
 ---
 title: "Implementing a bot for Slack in Rust, Rocket and Anterofit - Part 1"
 description: "Building a simple Slack bot for searching GitHub repositories using Rust, showcasing how powerful the language is for web development."
-date: 2017-07-27
+created: 2017-07-27
 tags: ["rust", "web"]
 ---
 
