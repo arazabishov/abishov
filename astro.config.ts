@@ -63,18 +63,11 @@ const expressiveCodeConfig: AstroExpressiveCodeOptions = {
     codeBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
     uiFontFamily: "var(--font-sans)",
     frames: {
-      editorActiveTabForeground: "var(--muted-foreground)",
       editorActiveTabBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
-      editorActiveTabIndicatorBottomColor: "transparent",
-      editorActiveTabIndicatorTopColor: "transparent",
-      editorTabBorderRadius: "0",
       editorTabBarBackground: "transparent",
-      editorTabBarBorderBottomColor: "transparent",
       frameBoxShadowCssValue: "none",
       terminalBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
       terminalTitlebarBackground: "transparent",
-      terminalTitlebarBorderBottomColor: "transparent",
-      terminalTitlebarForeground: "var(--muted-foreground)",
     },
     lineNumbers: {
       foreground: "var(--muted-foreground)",
