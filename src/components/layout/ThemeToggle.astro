@@ -13,7 +13,11 @@ import { Icon } from "astro-icon/components";
   (() => {
     const theme = (() => {
       const stored = localStorage?.getItem("theme") ?? "";
-      if (["dark", "light"].includes(stored)) return stored;
+
+      if (["dark", "light"].includes(stored)) {
+        return stored;
+      }
+
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     })();
 

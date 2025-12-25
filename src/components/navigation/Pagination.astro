@@ -12,12 +12,26 @@ const { currentPage, totalPages, baseUrl } = Astro.props;
 const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
 function getPageUrl(page: number): string {
-  if (page === 1) return baseUrl;
+  if (page === 1) {
+    return baseUrl;
+  }
+
   return `${baseUrl}${page}`;
 }
 
-const linkBase =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[background-color,color,opacity] duration-200 outline-none";
+const linkBase = [
+  "inline-flex",
+  "items-center",
+  "justify-center",
+  "gap-2",
+  "whitespace-nowrap",
+  "rounded-md",
+  "text-sm",
+  "font-medium",
+  "transition-[background-color,color,opacity]",
+  "duration-200",
+  "outline-none",
+];
 const linkSize = "size-9";
 const linkSizeDefault = "h-9 px-4 py-2";
 

@@ -8,7 +8,7 @@ import { getRecentPosts, getRecentProjects } from "@/core/content";
 
 const posts = await getRecentPosts(SITE.featuredCount);
 const projects = await getRecentProjects(SITE.featuredCount);
-const classes = [
+const baseClasses = [
   "inline-flex",
   "items-center",
   "justify-center",
@@ -57,7 +57,7 @@ const classes = [
       }
     </ul>
     <div class="flex justify-center">
-      <Link href="/blog" class:list={classes}>
+      <Link href="/blog" class:list={baseClasses}>
         See all posts
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
       </Link>
@@ -77,7 +77,7 @@ const classes = [
       }
     </ul>
     <div class="flex justify-center">
-      <Link href="/projects" class:list={classes}>
+      <Link href="/projects" class:list={baseClasses}>
         See all projects
         <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
       </Link>
