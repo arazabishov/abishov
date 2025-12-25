@@ -65,9 +65,9 @@ const expressiveCodeConfig: AstroExpressiveCodeOptions = {
     frames: {
       editorActiveTabBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
       editorTabBarBackground: "transparent",
-      frameBoxShadowCssValue: "none",
-      terminalBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
       terminalTitlebarBackground: "transparent",
+      terminalBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
+      frameBoxShadowCssValue: "none",
     },
     lineNumbers: {
       foreground: "var(--muted-foreground)",
