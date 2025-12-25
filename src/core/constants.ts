@@ -7,7 +7,7 @@ export type Site = {
   href: string;
   author: string;
   locale: string;
-  featuredPostCount: number;
+  featuredCount: number;
   postsPerPage: number;
 };
 
@@ -26,7 +26,7 @@ export const SITE: Site = {
   href: "https://abishov.com",
   author: "Araz Abishov",
   locale: "en-US",
-  featuredPostCount: 3,
+  featuredCount: 2,
   postsPerPage: 5,
 };
 

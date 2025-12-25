@@ -6,8 +6,8 @@ import ProjectCard from "@/components/ProjectCard.astro";
 import { SITE } from "@/core/constants";
 import { getRecentPosts, getRecentProjects } from "@/core/utils";
 
-const posts = await getRecentPosts(SITE.featuredPostCount);
-const projects = await getRecentProjects(SITE.featuredPostCount);
+const posts = await getRecentPosts(SITE.featuredCount);
+const projects = await getRecentProjects(SITE.featuredCount);
 
 const ghostButtonClasses =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none h-9 px-4 py-2 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 group";
