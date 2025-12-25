@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
-import { SITE } from "@/core/constants";
-import { getAllPosts } from "@/core/utils";
+import { SITE } from "@/consts";
+import { getAllPosts } from "@/core/content";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {

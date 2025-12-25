@@ -1,24 +1,4 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export type Site = {
-  title: string;
-  description: string;
-  href: string;
-  author: string;
-  locale: string;
-  featuredCount: number;
-  postsPerPage: number;
-};
-
-export type SocialLink = {
-  label: string;
-  href: string;
-};
-
-export type IconMap = {
-  [key: string]: string;
-};
+import type { Site, SocialLink, IconMap } from "./types";
 
 export const SITE: Site = {
   title: "Araz Abishov",
