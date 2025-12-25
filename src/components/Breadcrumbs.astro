@@ -14,32 +14,30 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav aria-label="breadcrumb">
+<nav aria-label="Breadcrumbs">
   <ol class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5">
     <li class="inline-flex items-center gap-1.5">
-      <a href="/" class="hover:text-foreground transition-colors">
+      <a href="/" aria-label="Home" class="hover:text-foreground transition-[color] duration-300">
         <Icon name="lucide:home" class="size-4 shrink-0" />
       </a>
     </li>
     {
       items.map((item, index) => (
         <>
-          <li role="presentation" aria-hidden="true" class="[&>svg]:size-3.5">
+          <li role="presentation" aria-hidden="true">
             <Icon name="lucide:chevron-right" class="size-3.5" />
           </li>
           <li class="inline-flex items-center gap-1.5">
             {index === items.length - 1 ? (
-              <span
-                role="link"
-                aria-disabled="true"
-                aria-current="page"
-                class="text-foreground flex items-center gap-x-2 font-normal"
-              >
+              <span aria-current="page" class="text-foreground flex items-center gap-x-2 font-normal">
                 {item.icon && <Icon name={item.icon} class="size-4 shrink-0" />}
                 <span>{item.label}</span>
               </span>
             ) : (
-              <a href={item.href} class="hover:text-foreground flex items-center gap-x-2 transition-colors">
+              <a
+                href={item.href}
+                class="hover:text-foreground flex items-center gap-x-2 transition-[color] duration-300"
+              >
                 {item.icon && <Icon name={item.icon} class="size-4 shrink-0" />}
                 <span>{item.label}</span>
               </a>
