@@ -16,8 +16,16 @@ const { project } = Astro.props;
   <Link href={project.data.link} class="flex flex-col gap-4 sm:flex-row" external>
     {
       project.data.image && (
-        <div class="w-full sm:max-w-3xs sm:shrink-0">
-          <Image src={project.data.image} alt={project.data.name} width={1200} height={630} class="object-cover" />
+        <div class="bg-muted w-full overflow-hidden rounded-lg sm:max-w-3xs sm:shrink-0">
+          <Image
+            src={project.data.image}
+            alt={project.data.name}
+            width={640}
+            height={400}
+            class="aspect-16/10 object-cover"
+            quality="mid"
+            priority
+          />
         </div>
       )
     }
