@@ -128,7 +128,7 @@
 
     /* Links */
     & :where(a) {
-      @apply decoration-muted-foreground hover:decoration-foreground underline-offset-[3px] transition-colors;
+      @apply decoration-muted-foreground hover:decoration-foreground underline-offset-[3px] transition-[text-decoration-color] duration-300;
     }
 
     /* Blockquotes */
