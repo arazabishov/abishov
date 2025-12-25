@@ -10,7 +10,7 @@ const posts = await getRecentPosts(SITE.featuredCount);
 const projects = await getRecentProjects(SITE.featuredCount);
 
 const ghostButtonClasses =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none h-9 px-4 py-2 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 group";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[background-color,color] duration-200 outline-none h-9 px-4 py-2 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 group";
 ---
 
 <Layout title="Home" class="max-w-3xl">

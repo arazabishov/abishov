@@ -23,7 +23,7 @@ const { title, description, created, updated, image, tags } = post.data;
 const postReadingTime = getPostReadingTime(post);
 
 const badgeClasses =
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 transition-[color,box-shadow] overflow-hidden border-transparent bg-muted text-foreground hover:bg-muted/90";
+  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 transition-[background-color] duration-200 overflow-hidden border-transparent bg-muted text-foreground hover:bg-muted/90";
 ---
 
 <Layout post={post}>
@@ -99,7 +99,7 @@ const badgeClasses =
     title="Scroll to top"
     aria-label="Scroll to top"
   >
-    <Icon name="lucide:arrow-up" class="mx-auto size-4 transition-all group-hover:-translate-y-0.5" />
+    <Icon name="lucide:arrow-up" class="mx-auto size-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
   </Button>
 
   <script>

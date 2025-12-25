@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<"button"> {
 const { variant = "default", size = "default", class: className, ...rest } = Astro.props;
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[background-color,border-color,color,opacity] duration-200 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none";
 
 const variantClasses: Record<string, string> = {
   default: "bg-primary text-primary-foreground hover:bg-primary/90",

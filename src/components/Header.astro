@@ -15,7 +15,7 @@ import { NAV_LINKS, SITE } from "@/core/constants";
       <nav class="flex items-center gap-4 text-sm sm:gap-6">
         {
           NAV_LINKS.map((item) => (
-            <Link href={item.href} class="text-foreground/60 hover:text-foreground capitalize transition-colors">
+            <Link href={item.href} class="text-foreground/60 hover:text-foreground capitalize transition-[color] duration-300">
               {item.label}
             </Link>
           ))
