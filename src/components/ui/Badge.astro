@@ -1,12 +1,15 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<"span">;
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+}
 
-const { class: className, ...rest } = Astro.props;
+const { href, class: className, ...rest } = Astro.props;
 ---
 
-<span
+<a
+  href={href}
   class:list={[
     "inline-flex",
     "items-center",
@@ -29,10 +32,10 @@ const { class: className, ...rest } = Astro.props;
     "overflow-hidden",
     "bg-muted",
     "text-foreground",
-    "[a&]:hover:bg-muted/90",
+    "hover:bg-muted/90",
     className,
   ]}
   {...rest}
 >
   <slot />
-</span>
+</a>

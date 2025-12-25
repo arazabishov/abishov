@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs.astro";
+import Badge from "@/components/ui/Badge.astro";
 import Button from "@/components/ui/Button.astro";
 import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
@@ -149,35 +150,10 @@ const postReadingTime = getPostReadingTime(post);
             tags &&
               tags.length > 0 &&
               tags.map((tag) => (
-                <a
-                  href={`/tags/${tag}`}
-                  class:list={[
-                    "inline-flex",
-                    "items-center",
-                    "justify-center",
-                    "rounded-md",
-                    "border",
-                    "px-2",
-                    "py-0.5",
-                    "text-xs",
-                    "font-medium",
-                    "w-fit",
-                    "whitespace-nowrap",
-                    "shrink-0",
-                    "[&>svg]:size-3",
-                    "gap-1",
-                    "transition-[background-color]",
-                    "duration-200",
-                    "overflow-hidden",
-                    "border-transparent",
-                    "bg-muted",
-                    "text-foreground",
-                    "hover:bg-muted/90",
-                  ]}
-                >
+                <Badge href={`/tags/${tag}`}>
                   <Icon name="lucide:hash" class="size-3" />
                   {tag}
-                </a>
+                </Badge>
               ))
           }
         </div>

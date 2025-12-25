@@ -1,6 +1,5 @@
 ---
 import Link from "@/components/ui/Link.astro";
-import Badge from "@/components/ui/Badge.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -35,18 +34,9 @@ const { project } = Astro.props;
         </h3>
         <Icon name="lucide:external-link" class="text-muted-foreground size-4 shrink-0" />
       </div>
-      <p class="text-muted-foreground mb-3 text-sm">
+      <p class="text-muted-foreground text-sm">
         {project.data.description}
       </p>
-      {
-        project.data.tags && (
-          <div class="flex flex-wrap gap-2">
-            {project.data.tags.map((tag: string) => (
-              <Badge>{tag}</Badge>
-            ))}
-          </div>
-        )
-      }
     </div>
   </Link>
 </div>

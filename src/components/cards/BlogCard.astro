@@ -1,6 +1,6 @@
 ---
-import Link from "@/components/ui/Link.astro";
 import Badge from "@/components/ui/Badge.astro";
+import Link from "@/components/ui/Link.astro";
 import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
@@ -13,13 +13,14 @@ interface Props {
 const { entry } = Astro.props;
 const formattedDate = formatDate(entry.data.created);
 const readTime = getPostReadingTime(entry);
+const postUrl = `/${entry.collection}/${entry.id}`;
 ---
 
 <div class="hover:bg-muted/50 rounded-xl border p-4 transition-[background-color] duration-300 ease-in-out">
-  <Link href={`/${entry.collection}/${entry.id}`} class="flex flex-col gap-4 sm:flex-row">
+  <div class="flex flex-col gap-4 sm:flex-row">
     {
       entry.data.image && (
-        <div class="bg-muted w-full overflow-hidden rounded-lg sm:max-w-3xs sm:shrink-0">
+        <Link href={postUrl} class="bg-muted w-full overflow-hidden rounded-lg sm:max-w-3xs sm:shrink-0">
           <Image
             src={entry.data.image}
             alt={entry.data.title}
@@ -28,13 +29,15 @@ const readTime = getPostReadingTime(entry);
             class="aspect-16/10 object-cover"
             quality="mid"
           />
-        </div>
+        </Link>
       )
     }
 
     <div class="grow">
-      <h3 class="mb-1 text-lg font-medium">{entry.data.title}</h3>
-      <p class="text-muted-foreground mb-2 text-sm">{entry.data.description}</p>
+      <Link href={postUrl}>
+        <h3 class="mb-1 text-lg font-medium">{entry.data.title}</h3>
+        <p class="text-muted-foreground mb-2 text-sm">{entry.data.description}</p>
+      </Link>
 
       <div class="text-muted-foreground mb-2 flex flex-wrap items-center gap-x-2 text-xs">
         <span>{formattedDate}</span>
@@ -46,7 +49,7 @@ const readTime = getPostReadingTime(entry);
         entry.data.tags && entry.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-2">
             {entry.data.tags.map((tag) => (
-              <Badge class="flex items-center gap-x-1">
+              <Badge href={`/tags/${tag}`}>
                 <Icon name="lucide:hash" class="size-3" />
                 {tag}
               </Badge>
@@ -55,5 +58,5 @@ const readTime = getPostReadingTime(entry);
         )
       }
     </div>
-  </Link>
+  </div>
 </div>
