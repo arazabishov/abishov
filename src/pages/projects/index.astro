@@ -16,7 +16,7 @@ const projects = await getAllProjects();
   <section class="space-y-6">
     <p class="text-muted-foreground">A collection of open source projects and experiments I've worked on.</p>
 
-    <div class="grid gap-6 sm:grid-cols-2">
+    <div class="grid items-start gap-6 sm:grid-cols-2">
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>

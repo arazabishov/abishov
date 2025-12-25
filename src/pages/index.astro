@@ -26,7 +26,7 @@ const projects = await getRecentProjects(SITE.featuredCount);
 
   <!-- Latest Posts Section -->
   <section class="space-y-4">
-    <h2 class="text-2xl font-medium">Latest posts</h2>
+    <h2 class="text-xl font-medium">Latest posts</h2>
     <ul class="space-y-4">
       {
         posts.map((post) => (
@@ -46,8 +46,8 @@ const projects = await getRecentProjects(SITE.featuredCount);
 
   <!-- Recent Projects Section -->
   <section class="space-y-4">
-    <h2 class="text-2xl font-medium">Recent projects</h2>
-    <div class="grid gap-6 sm:grid-cols-2">
+    <h2 class="text-xl font-medium">Recent projects</h2>
+    <div class="grid items-start gap-6 sm:grid-cols-2">
       {
         projects.map((project) => (
           <ProjectCard project={project} />

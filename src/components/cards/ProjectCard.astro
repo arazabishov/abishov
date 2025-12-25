@@ -1,4 +1,5 @@
 ---
+import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
@@ -50,4 +51,16 @@ const { project } = Astro.props;
       </p>
     </div>
   </Link>
+  {
+    project.data.tags && project.data.tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 px-4 pb-4">
+        {project.data.tags.map((tag) => (
+          <Badge href={`/tags/${tag}`}>
+            <Icon name="lucide:hash" class="size-3" />
+            {tag}
+          </Badge>
+        ))}
+      </div>
+    )
+  }
 </div>
