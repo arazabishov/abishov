@@ -7,7 +7,7 @@ export const SITE: Site = {
   author: "Araz Abishov",
   locale: "en-US",
   featuredCount: 2,
-  postsPerPage: 5,
+  postsPerPage: 4,
 };
 
 export const NAV_LINKS: SocialLink[] = [
