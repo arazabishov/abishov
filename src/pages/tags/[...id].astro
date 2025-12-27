@@ -13,6 +13,7 @@ export async function getStaticPaths() {
     uniqueTags.map(async (tag) => {
       const posts = await getPostsByTag(tag);
       const projects = await getProjectsByTag(tag);
+
       return {
         params: { id: tag },
         props: {
@@ -28,12 +29,7 @@ export async function getStaticPaths() {
 const { tag, posts, projects } = Astro.props;
 ---
 
-<Layout
-  title={`Tagged "${tag}"`}
-  description={`Posts and projects tagged with ${tag}.`}
-  noindex
-  class="max-w-3xl"
->
+<Layout title={`Tagged "${tag}"`} description={`Posts and projects tagged with ${tag}.`} noindex class="max-w-3xl">
   <Breadcrumbs
     items={[
       { href: "/tags", label: "Tags", icon: "lucide:tags" },

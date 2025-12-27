@@ -16,6 +16,8 @@ const { title: propTitle, description: propDescription, post, noindex = false } 
 const isPost = !!post;
 const title = post?.data.title ?? propTitle ?? SITE.title;
 const description = post?.data.description ?? propDescription ?? SITE.description;
+
+// TODO: update the image URL
 const defaultImage = new URL("/static/og.png", Astro.site);
 const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : defaultImage;
 ---
@@ -65,6 +67,8 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <meta name="twitter:card" content="summary_large_image" />
   {isPost && <meta name="twitter:creator" content={SITE.author} />}
 
+  <!-- TODO: ensure that project tags are also handled in the head accordingly -->
+  <!-- It is likely because projects do not have detailed page -->
   {post?.data.tags?.map((tag: string) => <meta property="article:tag" content={tag} />)}
 
   <link rel="sitemap" href="/sitemap-index.xml" />

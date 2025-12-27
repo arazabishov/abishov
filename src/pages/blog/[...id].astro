@@ -9,12 +9,12 @@ import { getPostReadingTime, formatDate } from "@/core/utils";
 import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
+  return (await getCollection("blog")).map((post) => ({
     params: { id: post.id },
     props: post,
   }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
@@ -107,6 +107,7 @@ const itemClasses = [
             <span>{postReadingTime}</span>
           </div>
 
+          <!-- TODO: test the layout with updated timestamp -->
           {
             updated && (
               <div class:list={[itemClasses, "italic"]}>
@@ -160,6 +161,7 @@ const itemClasses = [
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
+        // TODO: double check that these conditions work as expected
         window.addEventListener("scroll", () => {
           const footerRect = footer.getBoundingClientRect();
           const isFooterVisible = footerRect.top <= window.innerHeight;

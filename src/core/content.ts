@@ -1,8 +1,9 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
-  const posts = await getCollection("blog");
-  return posts.filter((post) => !post.data.draft).sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
+  return (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
 }
 
 export async function getAllProjects(): Promise<CollectionEntry<"projects">[]> {
