@@ -4,14 +4,14 @@ import { cn } from "@/core/utils";
 
 interface ButtonProps extends HTMLAttributes<"button"> {
   variant?: "outline" | "ghost";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "lg" | "icon" | "nav";
 }
 
 interface LinkProps extends HTMLAttributes<"a"> {
   href: string;
   external?: boolean;
   variant?: "outline" | "ghost";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "lg" | "icon" | "nav";
 }
 
 type Props = ButtonProps | LinkProps;
@@ -60,6 +60,7 @@ const sizeClasses: Record<string, string> = {
   sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
   lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
   icon: "size-9",
+  nav: "h-9 px-2.5 py-2 gap-1",
 };
 
 const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
