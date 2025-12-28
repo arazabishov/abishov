@@ -17,7 +17,6 @@ const isPost = !!post;
 const title = post?.data.title ?? propTitle ?? SITE.title;
 const description = post?.data.description ?? propDescription ?? SITE.description;
 
-// TODO: update the image URL
 const defaultImage = new URL("/static/og.png", Astro.site);
 const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : defaultImage;
 ---
