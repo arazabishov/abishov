@@ -128,8 +128,12 @@
 
     /* Links */
     & :where(a) {
-      /* TODO: break this line apart */
-      @apply decoration-muted-foreground hover:decoration-foreground underline-offset-[3px] transition-[text-decoration-color] duration-300;
+      /* Underline appearance */
+      @apply decoration-muted-foreground underline-offset-[3px];
+      /* Hover state */
+      @apply hover:decoration-foreground;
+      /* Transition */
+      @apply transition-[text-decoration-color] duration-300;
     }
 
     /* Blockquotes */

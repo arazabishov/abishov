@@ -67,8 +67,7 @@ const image = post?.data?.image?.src ? `${SITE.href}${post.data.image.src}` : de
   <meta name="twitter:card" content="summary_large_image" />
   {isPost && <meta name="twitter:creator" content={SITE.author} />}
 
-  <!-- TODO: ensure that project tags are also handled in the head accordingly -->
-  <!-- It is likely because projects do not have detailed page -->
+  <!-- Article tags are only rendered for blog posts since projects don't have individual pages -->
   {post?.data.tags?.map((tag: string) => <meta property="article:tag" content={tag} />)}
 
   <link rel="sitemap" href="/sitemap-index.xml" />
