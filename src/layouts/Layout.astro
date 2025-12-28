@@ -5,6 +5,7 @@ import Head from "@/components/layout/Head.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
 import { SITE } from "@/consts";
+import { cn } from "@/core/utils";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
 }
 
 const { title = SITE.title, description = SITE.description, post, noindex, class: className } = Astro.props;
+
+const mainClasses = cn("mx-auto flex w-full grow flex-col gap-y-6 px-4", className);
 ---
 
 <!doctype html>
@@ -27,7 +30,7 @@ const { title = SITE.title, description = SITE.description, post, noindex, class
     <header class="bg-background/50 sticky top-0 z-50 backdrop-blur-sm">
       <Header />
     </header>
-    <main class:list={["mx-auto flex w-full grow flex-col gap-y-6 px-4", className]}>
+    <main class={mainClasses}>
       <slot />
     </main>
     <Footer />

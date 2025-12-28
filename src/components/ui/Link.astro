@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/core/utils";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
@@ -8,24 +9,21 @@ interface Props extends HTMLAttributes<"a"> {
 }
 
 const { href, external, class: className, underline, ...rest } = Astro.props;
+
+const classes = cn(
+  underline && [
+    "underline",
+    "underline-offset-[3px]",
+    "decoration-muted-foreground",
+    "hover:decoration-foreground",
+    "transition-[text-decoration-color]",
+    "duration-300",
+    "ease-in-out",
+  ],
+  className,
+);
 ---
 
-<a
-  href={href}
-  target={external ? "_blank" : "_self"}
-  class:list={[
-    underline && [
-      "underline",
-      "underline-offset-[3px]",
-      "decoration-muted-foreground",
-      "hover:decoration-foreground",
-      "transition-[text-decoration-color]",
-      "duration-300",
-      "ease-in-out",
-    ],
-    className,
-  ]}
-  {...rest}
->
+<a href={href} target={external ? "_blank" : "_self"} class={classes} {...rest}>
   <slot />
 </a>
