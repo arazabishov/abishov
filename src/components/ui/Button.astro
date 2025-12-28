@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/core/utils";
 
 interface ButtonProps extends HTMLAttributes<"button"> {
   variant?: "outline" | "ghost";
@@ -61,16 +62,16 @@ const sizeClasses: Record<string, string> = {
   icon: "size-9",
 };
 
-const classes = [baseClasses, variantClasses[variant], sizeClasses[size], className];
+const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
 ---
 
 {
   isLink(Astro.props) ? (
-    <a href={Astro.props.href} target={Astro.props.external ? "_blank" : "_self"} class:list={classes} {...rest}>
+    <a href={Astro.props.href} target={Astro.props.external ? "_blank" : "_self"} class={classes} {...rest}>
       <slot />
     </a>
   ) : (
-    <button class:list={classes} {...(rest as HTMLAttributes<"button">)}>
+    <button class={classes} {...(rest as HTMLAttributes<"button">)}>
       <slot />
     </button>
   )

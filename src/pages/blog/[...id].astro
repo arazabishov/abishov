@@ -130,7 +130,7 @@ const itemClasses = [
   <Button
     variant="outline"
     size="icon"
-    class:list={["group", "fixed", "right-8", "bottom-8", "z-50", "hidden"]}
+    class="group fixed right-8 bottom-8 z-50 hidden"
     id="scroll-to-top"
     title="Scroll to top"
     aria-label="Scroll to top"
@@ -151,7 +151,6 @@ const itemClasses = [
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        // TODO: double check that these conditions work as expected
         window.addEventListener("scroll", () => {
           const footerRect = footer.getBoundingClientRect();
           const isFooterVisible = footerRect.top <= window.innerHeight;
