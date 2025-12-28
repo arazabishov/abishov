@@ -55,10 +55,7 @@ const { project } = Astro.props;
     project.data.tags && project.data.tags.length > 0 && (
       <div class="flex flex-wrap gap-2 px-4 pb-4">
         {project.data.tags.map((tag) => (
-          <Badge href={`/tags/${tag}`}>
-            <Icon name="lucide:hash" class="size-3" />
-            {tag}
-          </Badge>
+          <Badge href={`/tags/${tag}`}>{tag}</Badge>
         ))}
       </div>
     )

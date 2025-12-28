@@ -1,14 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
 }
 
-const { href, class: className, ...rest } = Astro.props;
+const { href, ...rest } = Astro.props;
 ---
 
-<!-- TODO: badge always includes the same icon --><!-- TODO: no one sends a custom class prop -->
 <a
   href={href}
   class:list={[
@@ -34,9 +34,9 @@ const { href, class: className, ...rest } = Astro.props;
     "bg-muted",
     "text-foreground",
     "hover:bg-muted/90",
-    className,
   ]}
   {...rest}
 >
+  <Icon name="lucide:hash" />
   <slot />
 </a>

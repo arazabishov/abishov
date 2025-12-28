@@ -117,16 +117,7 @@ const itemClasses = [
         </div>
 
         <div class:list={["flex", "flex-wrap", "justify-center", "gap-2"]}>
-          {
-            tags &&
-              tags.length > 0 &&
-              tags.map((tag) => (
-                <Badge href={`/tags/${tag}`}>
-                  <Icon name="lucide:hash" class="size-3" />
-                  {tag}
-                </Badge>
-              ))
-          }
+          {tags && tags.length > 0 && tags.map((tag) => <Badge href={`/tags/${tag}`}>{tag}</Badge>)}
         </div>
       </div>
     </section>
