@@ -1,3 +1,3 @@
 # README
 
-Hello, World.
+Hello, World. This page is built using Astro.
