@@ -79,7 +79,7 @@ export default defineConfig({
   site: "https://abishov.com",
   // Redirects for backwards compatibility
   redirects: {
-    "/pulsedisplay": "https://arazabishov.github.io/pulsedisplay",
+    "/pulsedisplay": "https://pulsedisplay.abishov.com/",
     "/pvec-rs-benchmarks": "https://arazabishov.github.io/pvec-rs-benchmarks",
     "/pvec-rs": "https://arazabishov.github.io/pvec-rs",
     "/thesis": "https://arazabishov.github.io/thesis",
