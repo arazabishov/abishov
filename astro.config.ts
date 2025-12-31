@@ -77,11 +77,6 @@ const expressiveCodeConfig: AstroExpressiveCodeOptions = {
 export default defineConfig({
   // Used for generating absolute URLs in RSS feed and sitemap.
   site: "https://abishov.com",
-  // Redirects for backwards compatibility
-  redirects: {
-    "/pulsedisplay": "https://pulsedisplay.abishov.com/",
-    "/thesis": "https://arazabishov.github.io/thesis",
-  },
   // Prefetch links on hover for faster navigation.
   prefetch: true,
   // Experimental features
