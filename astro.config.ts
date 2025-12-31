@@ -80,8 +80,6 @@ export default defineConfig({
   // Redirects for backwards compatibility
   redirects: {
     "/pulsedisplay": "https://pulsedisplay.abishov.com/",
-    "/pvec-rs-benchmarks": "https://arazabishov.github.io/pvec-rs-benchmarks",
-    "/pvec-rs": "https://arazabishov.github.io/pvec-rs",
     "/thesis": "https://arazabishov.github.io/thesis",
   },
   // Prefetch links on hover for faster navigation.
