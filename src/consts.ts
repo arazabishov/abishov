@@ -19,11 +19,13 @@ export const NAV_LINKS: SocialLink[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/arazabishov" },
   { label: "Twitter", href: "https://twitter.com/arazabishov" },
+  { label: "LinkedIn", href: "https://no.linkedin.com/in/arazabishov" },
   { label: "RSS", href: "/rss.xml" },
 ];
 
 export const ICON_MAP: IconMap = {
   GitHub: "lucide:github",
   Twitter: "lucide:twitter",
+  LinkedIn: "lucide:linkedin",
   RSS: "lucide:rss",
 };
