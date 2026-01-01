@@ -2,7 +2,7 @@ import type { IconMap, Site, SocialLink } from "./types";
 
 export const SITE: Site = {
   title: "Araz Abishov",
-  description: "Bits and bytes about open source, Android and Rust.",
+  description: "Bits and bytes about mobile development and Rust.",
   href: "https://abishov.com",
   author: "Araz Abishov",
   locale: "en-US",
