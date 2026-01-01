@@ -2,6 +2,8 @@
 import type { HTMLAttributes } from "astro/types";
 import { cn } from "@/core/utils";
 
+// Button component that renders as <a> or <button> based on props.
+// Uses discriminated union: if href is provided, renders as link.
 interface ButtonProps extends HTMLAttributes<"button"> {
   variant?: "outline" | "ghost";
   size?: "default" | "sm" | "lg" | "icon" | "nav";

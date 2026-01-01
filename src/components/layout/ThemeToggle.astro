@@ -9,6 +9,11 @@ import { Icon } from "astro-icon/components";
   <span class="sr-only">Toggle theme</span>
 </Button>
 
+<!--
+  Theme initialization script.
+  - is:inline: Executes immediately (before page render) to prevent theme flash.
+  - data-astro-rerun: Re-executes on every navigation (required with ClientRouter).
+-->
 <script is:inline data-astro-rerun>
   (() => {
     const theme = (() => {
@@ -32,6 +37,8 @@ import { Icon } from "astro-icon/components";
     const currentTheme = element.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
+    // Temporarily disable transitions to prevent jarring color changes during theme switch.
+    // getComputedStyle forces a style recalculation (reflow) before re-enabling transitions.
     element.classList.add("[&_*]:transition-none");
     element.setAttribute("data-theme", newTheme);
     window.getComputedStyle(element).getPropertyValue("opacity");
@@ -49,6 +56,8 @@ import { Icon } from "astro-icon/components";
 
   initThemeToggle();
 
+  // Re-apply theme after Astro's view transition swaps the DOM.
+  // Without this, navigating to a new page would reset to light theme.
   document.addEventListener("astro:after-swap", () => {
     const storedTheme = localStorage.getItem("theme") || "light";
     const element = document.documentElement;
