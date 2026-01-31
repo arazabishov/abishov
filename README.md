@@ -5,7 +5,13 @@
 
 Personal blog built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed on [Cloudflare Pages](https://pages.cloudflare.com).
 
-Theme inspired by [astro-erudite](https://github.com/jktrn/astro-erudite), heavily rewritten to remove React dependencies and use pure Astro components with [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography).
+Theme inspired by [astro-erudite](https://github.com/jktrn/astro-erudite), heavily rewritten to simplify the project:
+
+- Removed React dependencies in favor of pure Astro components with [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography)
+- No MDX support
+- No subposts or side navigation for in-post sections
+- No adjacent post navigation
+- Replaced authors section with projects
 
 ## Commands
 
