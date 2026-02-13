@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 165" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .link { stroke: #555555; stroke-opacity: 0.4; fill: none; stroke-width: 1.5; }
+    .node-r { stroke-width: 1px; stroke: #000000; fill-opacity: 0.6; }
+    .p0 { fill: #f44336; }
+    .p1 { fill: #ff9800; }
+    .lbl { fill: #374151; font: 10px sans-serif; }
+    .lbl-bg { fill: #374151; stroke: #ffffff; stroke-width: 3; stroke-linejoin: round; font: 10px sans-serif; }
+    .title { fill: #1f2937; font-size: 12px; font-weight: 700; letter-spacing: 0.025em; }
+    .swatch { stroke: #d1d5db; stroke-width: 1; rx: 2; }
+    .tail-lbl { fill: #6b7280; font: 10px sans-serif; }
+  </style>
+
+  <!-- Vector A label -->
+  <rect x="57" y="5" width="12" height="12" class="swatch p0"/>
+  <text x="74" y="15" class="title">Vector A · 10</text>
+
+  <!-- Vector B label -->
+  <rect x="317" y="5" width="12" height="12" class="swatch p1"/>
+  <text x="334" y="15" class="title">Vector B · 6</text>
+
+  <!-- Vector A tree -->
+  <g transform="translate(100, 52)">
+    <!-- links -->
+    <path class="link" d="M-8,20C-8,37,-40,37,-40,54"/>
+    <path class="link" d="M8,20C8,37,40,37,40,54"/>
+
+    <!-- root (2 slots) -->
+    <rect x="-16" y="0" width="16" height="20" class="node-r p0"/>
+    <rect x="0" y="0" width="16" height="20" class="node-r p0"/>
+
+    <!-- left leaf [0..3] -->
+    <g transform="translate(-40, 54)">
+      <rect x="-32" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="-16" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="0" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="16" y="0" width="16" height="20" class="node-r p0"/>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">0</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">1</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">2</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">3</text>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">0</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">1</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">2</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">3</text>
+    </g>
+
+    <!-- right leaf [4..7] -->
+    <g transform="translate(40, 54)">
+      <rect x="-32" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="-16" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="0" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="16" y="0" width="16" height="20" class="node-r p0"/>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">4</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">5</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">6</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">7</text>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">4</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">5</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">6</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">7</text>
+    </g>
+
+    <!-- tail [8,9] -->
+    <g transform="translate(40, 0)">
+      <text x="0" y="-6" class="tail-lbl">tail</text>
+      <rect x="0" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="16" y="0" width="16" height="20" class="node-r p0"/>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">8</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">9</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">8</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">9</text>
+    </g>
+  </g>
+
+  <!-- Vector B tree -->
+  <g transform="translate(380, 52)">
+    <!-- links -->
+    <path class="link" d="M-8,20C-8,37,-40,37,-40,54"/>
+    <path class="link" d="M8,20C8,37,40,37,40,54"/>
+
+    <!-- size table labels above root -->
+    <text transform="translate(-8, -12) rotate(315)" dy="0.31em" class="lbl-bg">2</text>
+    <text transform="translate(8, -12) rotate(315)" dy="0.31em" class="lbl-bg">6</text>
+    <text transform="translate(-8, -12) rotate(315)" dy="0.31em" class="lbl">2</text>
+    <text transform="translate(8, -12) rotate(315)" dy="0.31em" class="lbl">6</text>
+
+    <!-- root (2 slots) -->
+    <rect x="-16" y="0" width="16" height="20" class="node-r p1"/>
+    <rect x="0" y="0" width="16" height="20" class="node-r p1"/>
+
+    <!-- left leaf [10,11] (2 slots) -->
+    <g transform="translate(-40, 54)">
+      <rect x="-16" y="0" width="16" height="20" class="node-r p1"/>
+      <rect x="0" y="0" width="16" height="20" class="node-r p1"/>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">10</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">11</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">10</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">11</text>
+    </g>
+
+    <!-- right leaf [12..15] (4 slots, shared) -->
+    <g transform="translate(40, 54)">
+      <rect x="-32" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="-16" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="0" y="0" width="16" height="20" class="node-r p0"/>
+      <rect x="16" y="0" width="16" height="20" class="node-r p0"/>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">12</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">13</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">14</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl-bg">15</text>
+      <text transform="translate(-24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">12</text>
+      <text transform="translate(-8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">13</text>
+      <text transform="translate(8, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">14</text>
+      <text transform="translate(24, 32) rotate(270)" dy="0.31em" x="8" text-anchor="end" class="lbl">15</text>
+    </g>
+  </g>
+</svg>
